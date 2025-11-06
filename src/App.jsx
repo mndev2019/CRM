@@ -36,14 +36,18 @@ import ViewSolution from './Pages/Support/Solution/ViewSolution'
 import CreateSolution from './Pages/Support/Solution/CreateSolution'
 import ViewCase from './Pages/Support/Cases/ViewCase'
 import CreateCase from './Pages/Support/Cases/CreateCase'
+import Login from './Pages/Login'
 
 function App() {
   const ThemeRoutes = createBrowserRouter(
     createRoutesFromElements(
       <>
+        <Route path="/" element={<Login />} />
+
         <Route path='/' element={<Layout />}>
-          <Route path='/' element={<Dashboard />} />
-          <Route path='/profile' element={<Profile/>}/>
+
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/profile' element={<Profile />} />
           {/* sales */}
           <Route path='/view-lead' element={<ViewLead />} />
           <Route path='/create-lead' element={<CreateLead />} />
@@ -51,40 +55,42 @@ function App() {
           <Route path='/view-contact' element={<ViewContact />} />
           <Route path='/create-account' element={<CreateAccount />} />
           <Route path='/view-account' element={<ViewAccount />} />
-          <Route path='/create-deal' element={<CreateDeal/>}/>
-          <Route path='/view-deal' element={<ViewDeal/>}/>
-          <Route path='/deal-detail' element={<DealDetail/>}/>
-          <Route path='/sales-analytics' element={<SalesAnalytics/>}/>
+          <Route path='/create-deal' element={<CreateDeal />} />
+          <Route path='/view-deal' element={<ViewDeal />} />
+          <Route path='/deal-detail' element={<DealDetail />} />
+          <Route path='/sales-analytics' element={<SalesAnalytics />} />
           {/* Activity */}
           <Route path='/create-task' element={<CreateTask />} />
           <Route path='/view-task' element={<ViewTask />} />
           <Route path='/view-meeting' element={<ViewMeeting />} />
           <Route path='/create-meeting' element={<CreateMeeting />} />
-          <Route path='/create-call' element={<CreateCall/>}/>
-          <Route path='/view-call' element={<ViewCall/>}/>
+          <Route path='/create-call' element={<CreateCall />} />
+          <Route path='/view-call' element={<ViewCall />} />
           {/* Marketing */}
-          <Route path='/view-campaigns' element={<ViewCampaigns/>}/>
-          <Route path='/create-campaigns' element={<CreateCampaigns/>}/>
-          <Route path='/view-landing' element={<ViewLanding/>}/>
-          <Route path='/create-landing' element={<CreateLanding/>}/>
-          <Route path='/market-analytics' element={<MarketAnalytics/>}/>
+          <Route path='/view-campaigns' element={<ViewCampaigns />} />
+          <Route path='/create-campaigns' element={<CreateCampaigns />} />
+          <Route path='/view-landing' element={<ViewLanding />} />
+          <Route path='/create-landing' element={<CreateLanding />} />
+          <Route path='/market-analytics' element={<MarketAnalytics />} />
           {/* support */}
-          <Route path='/create-ticket' element={<CreateTicket/>}/>
-          <Route path='/view-ticket' element={<ViewTicket/>}/>
-          <Route path='/create-knowledge' element={<CreateKnoelwdgeArticle/>}/>
-          <Route path='/view-knowledge' element={<ViewKnowledgeArticle/>}/>
-          <Route path='/support-analytics' element={<SupportAnalytics/>}/>
-          <Route path='/view-solution' element={<ViewSolution/>}/>
-          <Route path='/create-solution' element={<CreateSolution/>}/>
-          <Route path='/view-case' element={<ViewCase/>}/>
-          <Route path='/create-case' element={<CreateCase/>}/>
+          <Route path='/create-ticket' element={<CreateTicket />} />
+          <Route path='/view-ticket' element={<ViewTicket />} />
+          <Route path='/create-knowledge' element={<CreateKnoelwdgeArticle />} />
+          <Route path='/view-knowledge' element={<ViewKnowledgeArticle />} />
+          <Route path='/support-analytics' element={<SupportAnalytics />} />
+          <Route path='/view-solution' element={<ViewSolution />} />
+          <Route path='/create-solution' element={<CreateSolution />} />
+          <Route path='/view-case' element={<ViewCase />} />
+          <Route path='/create-case' element={<CreateCase />} />
           {/* Automation */}
-          <Route path='/automation' element={<AutomationModule/>}/>
+          <Route path='/automation' element={<AutomationModule />} />
           {/* field sales */}
-          <Route path='/field-sales' element={<FieldSales/>}/>
+          <Route path='/field-sales' element={<FieldSales />} />
           {/* workflow */}
-          <Route path='/work-flow' element={<WorkFlowModule/>}/>
+          <Route path='/work-flow' element={<WorkFlowModule />} />
+
         </Route>
+
 
       </>
     )

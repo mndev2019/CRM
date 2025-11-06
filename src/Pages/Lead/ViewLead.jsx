@@ -1,16 +1,18 @@
-import React from 'react'
-import Topnav from '../../Component/Topnav'
-import PageNav from '../../Component/PageNav'
+import React from "react";
+import Topnav from "../../Component/Topnav";
+import PageNav from "../../Component/PageNav";
+import { FaWhatsapp } from "react-icons/fa";
 
 const ViewLead = () => {
-  // 📝 Sample data (you can replace this with API data)
+
+  // 📝 Sample Data
   const leads = [
     {
       id: 1,
       name: "Rohit Verma",
       organisation: "TechCorp",
       email: "rohit.verma@example.com",
-      phone: "9876543210",
+      phone: "9335829697",
       source: "Website",
       owner: "Muskan",
     },
@@ -50,13 +52,18 @@ const ViewLead = () => {
                 <th className="px-4 py-3 text-left text-sm font-semibold">Phone</th>
                 <th className="px-4 py-3 text-left text-sm font-semibold">Lead Source</th>
                 <th className="px-4 py-3 text-left text-sm font-semibold">Lead Owner</th>
+                  <th className="px-4 py-3 text-left text-sm font-semibold">WhatsApp</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold">Contact</th>
               </tr>
             </thead>
+
             <tbody>
               {leads.map((lead, index) => (
                 <tr
                   key={lead.id}
-                  className={`${index % 2 === 0 ? "bg-gray-100" : "bg-white"} hover:bg-blue-50 transition`}
+                  className={`${
+                    index % 2 === 0 ? "bg-gray-100" : "bg-white"
+                  } hover:bg-blue-50 transition`}
                 >
                   <td className="px-4 py-3 text-sm font-medium text-gray-800">{lead.name}</td>
                   <td className="px-4 py-3 text-sm text-gray-700">{lead.organisation}</td>
@@ -64,14 +71,47 @@ const ViewLead = () => {
                   <td className="px-4 py-3 text-sm text-gray-700">{lead.phone}</td>
                   <td className="px-4 py-3 text-sm text-gray-700">{lead.source}</td>
                   <td className="px-4 py-3 text-sm text-gray-700">{lead.owner}</td>
+
+                  {/* ✅ WhatsApp & Call Buttons Separated */}
+                  <td className="px-4 py-3 text-sm">
+
+                    {/* ✅ WhatsApp Button */}
+                    <a
+                      href={`https://wa.me/91${lead.phone}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-green-600 font-semibold hover:underline"
+                    >
+                      <FaWhatsapp className="text-xl" /> WhatsApp
+                    </a>
+
+                   
+
+                  </td>
+                     <td className="px-4 py-3 text-sm">
+
+                  
+                  
+
+                    {/* ✅ Call Button */}
+                    <a
+                      href={`tel:${lead.phone}`}
+                      className="flex items-center gap-2 text-blue-600 font-semibold hover:underline"
+                    >
+                      📞 Call
+                    </a>
+
+                  </td>
+
                 </tr>
               ))}
             </tbody>
+
           </table>
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default ViewLead
+export default ViewLead;

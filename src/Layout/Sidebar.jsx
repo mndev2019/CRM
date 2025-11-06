@@ -81,8 +81,8 @@
 // export default Sidebar
 import React, { useState } from "react";
 import { IoIosArrowBack, IoIosArrowDown } from "react-icons/io";
-import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/Images/newlogocolored.png";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import logo from "../assets/Images/logoremovebg.png";
 import { AiOutlineLogout } from "react-icons/ai";
 
 // ✅ Sections array with Dashboard path added
@@ -90,7 +90,7 @@ const sections = [
   {
     title: "Dashboard",
     icon: "🧭",
-    path: "/", // 👈 path for direct navigation
+    path: "/dashboard", // 👈 path for direct navigation
   },
   {
     title: "Sales",
@@ -156,53 +156,11 @@ const sections = [
     ],
   },
 ];
-// const sections = [
-//   { title: "Dashboard", icon: "🧭", path: "/dashboard" },
-//   {
-//     title: "Sales", icon: "🤝", subMenu: [
-//       { title: "Leads", path: "/sales/leads" },
-//       { title: "Contacts", path: "/sales/contacts" },
-//       { title: "Sales Analytics", path: "/sales/analytics/dashboard" },
-//     ],
-//   },
-//   {
-//     title: "Marketing", icon: "📈", subMenu: [
-//       { title: "Campaigns", path: "/marketing/campaigns" },
-//       { title: "Email Marketing", path: "/marketing/email" },
-//       { title: "Landing Pages", path: "/marketing/landing-pages" },
-//     ],
-//   },
-//   {
-//     title: "Automation", icon: "⚙️", subMenu: [
-//       { title: "Workflow Builder", path: "/automation/workflow-builder" },
-//       { title: "Triggers", path: "/automation/triggers" },
-//       { title: "Actions", path: "/automation/actions" },
-//     ],
-//   },
-//   {
-//     title: "Support", icon: "💬", subMenu: [
-//       { title: "Tickets", path: "/support/tickets" },
-//       { title: "Create Ticket", path: "/support/tickets/add" },
-//       { title: "Integrations", path: "/support/integrations" },
-//     ],
-//   },
-//   {
-//     title: "Field Sales", icon: "🚗", subMenu: [
-//       { title: "Nearby Leads", path: "/field-sales/nearby" },
-//       { title: "Check-in / Check-out", path: "/field-sales/checkin" },
-//       { title: "Quick Add Lead", path: "/field-sales/add-lead" },
-//     ],
-//   },
-//   {
-//     title: "Integrations", icon: "🔗", subMenu: [
-//       { title: "Email Marketing", path: "/integrations/email" },
-//       { title: "Voice / Messages", path: "/integrations/voice" },
-//     ],
-//   },
-// ];
+
 
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(true);
   const [activeMenu, setActiveMenu] = useState(null);
   const location = useLocation();
@@ -210,7 +168,9 @@ const Sidebar = () => {
   const toggleSubMenu = (index) => {
     setActiveMenu(activeMenu === index ? null : index);
   };
-
+  const handlelogout = () => {
+    navigate('/')
+  }
   return (
     <div className="flex h-screen">
       <div
@@ -226,7 +186,7 @@ const Sidebar = () => {
         </div>
 
         {/* Logo */}
-        <div className="flex gap-x-4 items-center mb-6">
+        <div className="flex gap-x-4 items-center mb-6 bg-white rounded p-2">
           <img
             src={logo}
             alt="Logo"
@@ -291,7 +251,9 @@ const Sidebar = () => {
         </ul>
 
         {/* Logout */}
-        <div className="mt-6 text-gray-300 flex items-center gap-x-3 cursor-pointer p-2 rounded-md hover:bg-[#02457A]">
+        <div className="mt-6 text-gray-300 flex items-center gap-x-3 cursor-pointer p-2 rounded-md hover:bg-[#02457A]"
+          onClick={handlelogout}
+        >
           <AiOutlineLogout />
           {open && <span>Logout</span>}
         </div>
