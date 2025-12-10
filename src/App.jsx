@@ -1,4 +1,4 @@
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, createRoutesFromElements, Navigate, Route, RouterProvider } from 'react-router-dom'
 import './App.css'
 import Layout from './Layout/Layout'
 import Dashboard from './Pages/Dashboard'
@@ -39,9 +39,10 @@ function App() {
   const ThemeRoutes = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route path="/" element={<Login />} />
+       <Route path='/' element={<Navigate to="/login" replace />} />
+       <Route path='/login' element={<Login/>}/>
 
-        <Route   element={<Layout />}>
+        <Route  path='/'  element={<Layout />}>
 
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/profile' element={<Profile />} />
