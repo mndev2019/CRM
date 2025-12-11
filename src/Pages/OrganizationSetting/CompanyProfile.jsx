@@ -6,12 +6,13 @@ import { RiEdit2Fill } from "react-icons/ri";
 import edit from '../../assets/Svg/edit.svg'
 import camera from '../../assets/Svg/camera.svg'
 import remove from '../../assets/Svg/remove.svg'
+import newlead from '../../assets/Images/profile.png'
 
 const CompanyProfile = () => {
     const [showeditpopup, setshoweditpopup] = useState()
     return (
         <>
-            <Topnav title="Company Profile" subtitle="Manage your personal profile" />
+            <Topnav title="Company Profile" subtitle="Manage your personal profile" icon={newlead} />
             <section className="px-10 py-8 bg-white rounded-bl-2xl rounded-br-2xl">
                 {/* Header Section */}
                 <div className="flex gap-6 items-center">

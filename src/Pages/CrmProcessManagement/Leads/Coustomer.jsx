@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Topnav from "../../../Component/Topnav";
-import newlead from "../../../assets/Images/newlead.png";
+import newlead from "../../../assets/Images/profile.png";
 import { FiSearch } from "react-icons/fi";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { FaRegPlusSquare } from "react-icons/fa";

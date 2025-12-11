@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Topnav from '../../../Component/Topnav'
+import task from '../../../assets/Images/task.png'
 
 const CreateTask = () => {
     const [tasktype, settasktype] = useState("");
@@ -9,6 +10,7 @@ const CreateTask = () => {
             <Topnav
                 title="Create Task"
                 subtitle="Add a new task and organize your workflow efficiently."
+                icon={task}
             />
 
             <section className="p-6 bg-white rounded-bl-2xl rounded-br-2xl">

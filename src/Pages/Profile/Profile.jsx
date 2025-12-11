@@ -8,12 +8,13 @@ import { MdOutlineContentCopy } from "react-icons/md";
 import edit from '../../assets/Svg/edit.svg'
 import camera from '../../assets/Svg/camera.svg'
 import remove from '../../assets/Svg/remove.svg'
+import profile from '../../assets/Images/profile.png'
 
 const Profile = () => {
     const [showeditpopup, setshoweditpopup] = useState()
     return (
         <>
-            <Topnav title="My Profile" subtitle="Manage your personal profile" />
+            <Topnav title="My Profile" subtitle="Manage your personal profile" icon={profile}/>
             <section className="px-10 py-8 bg-white rounded-bl-2xl rounded-br-2xl">
                 {/* Header Section */}
                 <div className="flex gap-6">

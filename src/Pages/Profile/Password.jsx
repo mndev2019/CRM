@@ -1,11 +1,12 @@
 import React from 'react'
 import Topnav from '../../Component/Topnav'
 import { CiFloppyDisk } from 'react-icons/ci'
+import password from '../../assets/Images/password.png'
 
 const Password = () => {
     return (
         <>
-            <Topnav title="My Password" subtitle="Change your password" />
+            <Topnav title="My Password" subtitle="Change your password" icon={password} />
             <section className="px-10 py-8 bg-white rounded-bl-2xl rounded-br-2xl">
                 <div className="grid grid-cols-1">
                     <div className="col-span-1">

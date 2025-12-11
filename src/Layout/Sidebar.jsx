@@ -34,13 +34,21 @@ const menu = [
         items: [
           { name: "Company Profile", path: "/company-profile" },
           { name: "Request History", path: "/request-hiostry" },
-          // { name: "Advanced Configuration", path: "/advanced-configuration" },
+          { name: "Advanced Setup", path: "/advanced-setup" },
         ],
       },
       {
         heading: "Billing and Usage",
         items: [
-          { name: "Billing and Usage", path: "/billing-usage" },
+          { name: "Billing Details", path: "/billing-detail" },
+          { name: "Usage Report", path: "/usage-report" },
+        ],
+      },
+      {
+        heading: "Call Preferences",
+        items: [
+          { name: "Call Preference", path: "/call-prefrence" },
+
         ],
       },
     ],
@@ -89,6 +97,21 @@ const menu = [
       },
     ],
   },
+  // {
+  //   title: "Marketing",
+  //   children: [
+  //     {
+  //       heading: "Website Widgets",
+  //       items: [
+  //         { name: "Website Widgets", path: "/website-widgets" },
+
+  //       ],
+  //     },
+
+
+
+  //   ],
+  // },
 
 ];
 

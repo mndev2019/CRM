@@ -1,5 +1,6 @@
 import React from 'react'
 import Topnav from '../../Component/Topnav'
+import report from '../../assets/Images/report.png'
 
 const ReportSubscription = () => {
     return (
@@ -7,6 +8,7 @@ const ReportSubscription = () => {
             <Topnav
                 title="My Report Subscriptions"
                 subtitle="Manage your report subscriptions"
+                icon={report}
             />
 
             <section className="px-10 py-8 bg-white rounded-bl-2xl rounded-br-2xl space-y-6">

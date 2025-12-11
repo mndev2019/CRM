@@ -1,10 +1,11 @@
 import React from 'react'
 import Topnav from '../../Component/Topnav'
+import emailsign from '../../assets/Images/emailsignature.png'
 
 const EmailSingnature = () => {
     return (
         <>
-            <Topnav title="My Email  Signature" subtitle="Update your HTML and text email signature" />
+            <Topnav title="My Email  Signature" subtitle="Update your HTML and text email signature" icon={emailsign} />
             <section className='px-10 py-8 bg-white rounded-bl-2xl rounded-br-2xl'>
                 <div className="grid grid-cols-1">
                     <div className="col-span-1">

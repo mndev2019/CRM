@@ -6,19 +6,20 @@ import { FaRegPlusSquare } from "react-icons/fa";
 import { GoPlus } from "react-icons/go";
 import { useNavigate } from "react-router-dom";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+import salesactivity from '../../../assets/Images/salesactivity.png'
 
 const ShowSalesActivity = () => {
     const navigate = useNavigate();
-    
 
 
-   const statusClasses = {
-  "Open": "bg-[#DCEBFF] text-[#1A73E8]",   // Blue
 
-  "Won": "bg-[#EFFFF0] text-[#049B1D]",    // Green
+    const statusClasses = {
+        "Open": "bg-[#DCEBFF] text-[#1A73E8]",   // Blue
 
-  "Lost": "bg-[#FDD7D7] text-[#FF1212]"    // Red
-};
+        "Won": "bg-[#EFFFF0] text-[#049B1D]",    // Green
+
+        "Lost": "bg-[#FDD7D7] text-[#FF1212]"    // Red
+    };
 
 
 
@@ -27,7 +28,7 @@ const ShowSalesActivity = () => {
             <Topnav
                 title="Sales Activity"
                 subtitle="Track, manage, and monitor all sales interactions for better performance and follow-ups."
-            // icon={newlead}
+                icon={salesactivity}
             />
 
             <section className="p-6 bg-white rounded-bl-2xl rounded-br-2xl">
@@ -47,7 +48,7 @@ const ShowSalesActivity = () => {
                         <div className="flex gap-1 items-center relative">
                             {/* Call Button */}
                             <button
-                              onClick={()=> navigate('/create-sales-activity')}
+                                onClick={() => navigate('/create-sales-activity')}
                                 className="relative border-[#8693FF] border-[1px] hover:bg-[#7785f5] hover:text-white transition text-[#8693FF] nunito flex items-center gap-2 font-semibold text-[15px] rounded-md py-2 px-4 shadow-sm"
                             >
                                 Sales Activity

@@ -1,6 +1,6 @@
 import React from "react";
 import Topnav from "../../../Component/Topnav";
-import lead from "../../../assets/Images/newlead.png";
+import lead from "../../../assets/Images/profile.png";
 
 const CreateAccount = () => {
     return (

@@ -9,6 +9,7 @@ import { GoPlus } from "react-icons/go";
 import { TbFileExport } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+import task from '../../../assets/Images/task.png'
 
 
 const Task = () => {
@@ -27,6 +28,7 @@ const Task = () => {
             <Topnav
                 title="Tasks"
                 subtitle="View and manage all tasks in your system."
+                icon={task}
             />
 
             <section className="p-6 bg-white rounded-bl-2xl rounded-br-2xl">

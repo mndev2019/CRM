@@ -32,6 +32,10 @@ import ShowActivity from './Pages/CrmProcessManagement/Activities/ShowActivity'
 import ShowSalesActivity from './Pages/CrmProcessManagement/Activities/ShowSalesActivity'
 import CreateSalesActivity from './Pages/CrmProcessManagement/Activities/CreateSalesActivity'
 import DocumentGenration from './Pages/CrmProcessManagement/Activities/DocumentGeneration'
+import AdvancedSetup from './Pages/OrganizationSetting/AdvancedSetup'
+import BillingDetail from './Pages/BillingUsage/BillingDetail'
+import UsageReport from './Pages/BillingUsage/UsageReport'
+import CallPrefrence from './Pages/CallPrefrences/CallPrefrence'
 
 
 
@@ -39,10 +43,10 @@ function App() {
   const ThemeRoutes = createBrowserRouter(
     createRoutesFromElements(
       <>
-       <Route path='/' element={<Navigate to="/login" replace />} />
-       <Route path='/login' element={<Login/>}/>
+        <Route path='/' element={<Navigate to="/login" replace />} />
+        <Route path='/login' element={<Login />} />
 
-        <Route  path='/'  element={<Layout />}>
+        <Route path='/' element={<Layout />}>
 
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/profile' element={<Profile />} />
@@ -71,10 +75,13 @@ function App() {
           <Route path='/create-task' element={<CreateTask />} />
           <Route path='/view-list' element={<ViewList />} />
           <Route path="/show-activity" element={<ShowActivity />} />
-          <Route path='/show-sales-activity' element={<ShowSalesActivity/>}/>
-          <Route path='/create-sales-activity' element={<CreateSalesActivity/>}/>
-          <Route path='/document-generation' element={<DocumentGenration/>}/>
-
+          <Route path='/show-sales-activity' element={<ShowSalesActivity />} />
+          <Route path='/create-sales-activity' element={<CreateSalesActivity />} />
+          <Route path='/document-generation' element={<DocumentGenration />} />
+          <Route path='/advanced-setup' element={<AdvancedSetup />} />
+          <Route path='/billing-detail' element={<BillingDetail />} />
+          <Route path='/usage-report' element={<UsageReport />} />
+          <Route path='/call-prefrence' element={<CallPrefrence/>}/>
         </Route>
 
 
