@@ -11,7 +11,7 @@ const AddLeave = () => {
             <section className="px-10 py-8 bg-white rounded-bl-2xl rounded-br-2xl space-y-6">
                 <div className="grid grid-cols-1">
                     <div className="col-span-1">
-                        <div className="w-full border-3 border-[#EDEEF4] rounded-[6px] py-5 px-10">
+                        <div className="w-full border border-[#EDEEF4] rounded-[6px] py-5 px-10">
                             <div className='flex gap-5 mb-4'>
                                 {
                                     ["My Leave", "Add New Leave"].map((itm) => (

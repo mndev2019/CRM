@@ -11,8 +11,8 @@ const UsageReport = () => {
                 icon={billing}
             />
             <section className="p-4 bg-white rounded-bl-2xl rounded-br-2xl ">
-                <div className='p-4 border-2 border-[#EDEEF4] rounded-[12px]'>
-                    <h2 className="inter font-bold text-[22px] py-3 border-b-2 border-[#EDEEF4]">Product Usage Report</h2>
+                <div className='p-4 border border-[#EDEEF4] rounded-[12px]'>
+                    <h2 className="inter font-bold text-[22px] py-3 border-b border-[#EDEEF4]">Product Usage Report</h2>
 
                     {/* Item Block */}
                     <div className="space-y-8">

@@ -11,7 +11,7 @@ const BillingDetail = () => {
                 icon={billing}
             />
             <section className="p-4 bg-white rounded-bl-2xl rounded-br-2xl ">
-                <div className='border-2 border-[#EDEEF4] rounded-[12px] p-4'>
+                <div className='border border-[#EDEEF4] rounded-[12px] p-4'>
                     <div className='border border-[#EDEEF4] rounded-[12px] p-8'>
                         <h2 className='inter text-[20px] font-bold pb-2 border-b border-[#EDEEF4]'>
                             Contact Info
@@ -35,7 +35,7 @@ const BillingDetail = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='border border-[#EDEEF4] rounded-[12px] p-8'>
+                    <div className='border border-[#EDEEF4] rounded-[12px] p-8 mt-4'>
                         <h2 className='inter text-[20px] font-bold pb-2 border-b border-[#EDEEF4]'>
                             Plan Details
                         </h2>

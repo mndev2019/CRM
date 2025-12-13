@@ -54,14 +54,12 @@ const CallPrefrence = () => {
                 </div>
             </section> */}
             <section className="p-4 bg-white rounded-bl-2xl rounded-br-2xl">
-                <div className='p-4 border-2 border-[#EDEEF4] rounded-[12px]'>
+                <div className='p-4 border border-[#EDEEF4] rounded-[12px]'>
                     <h2 className='inter font-bold text-[20px] border-b border-[#EDEEF4] pb-2'>
                         Select Provider and Virtual Number
-
                     </h2>
-                    <div className='border-2 border-[#EDEEF4] p-4 mt-4'>
+                    <div className='border border-[#EDEEF4] p-4 mt-4'>
                         <div className="grid grid-cols-2 gap-4">
-
                             <div className="col-span-2">
                                 <p className='text-sm text-gray-800 mb-3'>
                                     You can select one of the virtual numbers from the list, for making outbound calls. You can choose any provider from the list and all the virtual numbers associated with that provider can be selected. Please make sure you're choosing the expected virtual number before starting any calls to the leads as the leads will see this number while responding
@@ -100,8 +98,6 @@ const CallPrefrence = () => {
 
                         </div>
                     </div>
-
-
                 </div>
             </section>
         </>

@@ -14,8 +14,8 @@ const ReportSubscription = () => {
             <section className="px-10 py-8 bg-white rounded-bl-2xl rounded-br-2xl space-y-6">
                 <div className="grid grid-cols-1">
                     <div className="col-span-1">
-                        <div className="w-full border-3 border-[#EDEEF4] rounded-[6px] py-5 px-10 space-y-5">
-                            <div className="flex items-start gap-3 border-b-3 border-[#EDEEF4] pb-4">
+                        <div className="w-full border border-[#EDEEF4] rounded-[6px] py-5 px-10 space-y-5">
+                            <div className="flex items-start gap-3 border-b border-[#EDEEF4] pb-4">
                                 <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600" defaultChecked />
                                 <div>
                                     <h3 className="font-medium text-gray-900">Daily User Task Reports</h3>
@@ -24,7 +24,7 @@ const ReportSubscription = () => {
                                     </p>
                                 </div>
                             </div>
-                            <div className="flex items-start gap-3 border-b-3 border-[#EDEEF4] pb-4">
+                            <div className="flex items-start gap-3 border-b border-[#EDEEF4] pb-4">
                                 <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600" defaultChecked />
                                 <div>
                                     <h3 className="font-medium text-gray-900">Daily Report</h3>
@@ -34,7 +34,7 @@ const ReportSubscription = () => {
                                 </div>
                             </div>
 
-                            <div className="flex items-start gap-3 border-b-3 border-[#EDEEF4] pb-4">
+                            <div className="flex items-start gap-3 border-b border-[#EDEEF4] pb-4">
                                 <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600" defaultChecked />
                                 <div>
                                     <h3 className="font-medium text-gray-900">Daily Reports For Owner</h3>
@@ -44,7 +44,7 @@ const ReportSubscription = () => {
                                 </div>
                             </div>
 
-                            <div className="flex items-start gap-3 border-b-3 border-[#EDEEF4] pb-4">
+                            <div className="flex items-start gap-3 border-b border-[#EDEEF4] pb-4">
                                 <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600" />
                                 <div>
                                     <h3 className="font-medium text-gray-900">Smart Views Summary</h3>

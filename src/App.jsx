@@ -6,7 +6,7 @@ import Dashboard from './Pages/Dashboard'
 import Profile from './Pages/Profile/Profile'
 
 
-import Login from './Pages/Login'
+
 import Password from './Pages/Profile/Password'
 import EmailSingnature from './Pages/Profile/EmailSingnature'
 import ReportSubscription from './Pages/Profile/ReportSubscription'
@@ -36,6 +36,11 @@ import AdvancedSetup from './Pages/OrganizationSetting/AdvancedSetup'
 import BillingDetail from './Pages/BillingUsage/BillingDetail'
 import UsageReport from './Pages/BillingUsage/UsageReport'
 import CallPrefrence from './Pages/CallPrefrences/CallPrefrence'
+import Login from './Pages/Auth/Login'
+import Signup from './Pages/Auth/SignUp'
+import ForgotPassword from './Pages/Auth/ForgotPassword'
+import VerifyOtp from './Pages/Auth/VerifyOtp'
+import ResetPassword from './Pages/Auth/ResetPassword'
 
 
 
@@ -45,6 +50,10 @@ function App() {
       <>
         <Route path='/' element={<Navigate to="/login" replace />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/sign-up' element={<Signup />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/verify-otp" element={<VerifyOtp />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
 
         <Route path='/' element={<Layout />}>
 
@@ -81,7 +90,7 @@ function App() {
           <Route path='/advanced-setup' element={<AdvancedSetup />} />
           <Route path='/billing-detail' element={<BillingDetail />} />
           <Route path='/usage-report' element={<UsageReport />} />
-          <Route path='/call-prefrence' element={<CallPrefrence/>}/>
+          <Route path='/call-prefrence' element={<CallPrefrence />} />
         </Route>
 
 

@@ -1,6 +1,6 @@
 import React from "react";
-import loginIllustration from "../assets/Images/loginside.png"; 
-import login from '../assets/Images/logonew.png'
+import loginIllustration from "../../assets/Images/loginside.png"; 
+import login from '../../assets/Images/logonew.png'
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -55,7 +55,7 @@ const Login = () => {
               <input type="checkbox" className="accent-[#5465F2]" />
               <span>Remember me</span>
             </label>
-            <button className="text-[#5465F2] nunito hover:underline font-bold text-[16px]">
+            <button onClick={()=> navigate('/forgot-password')} className="text-[#5465F2] nunito hover:underline font-bold text-[16px]">
               Forgot password?
             </button>
           </div>
@@ -69,7 +69,7 @@ const Login = () => {
         {/* Sign up */}
         <p className="text-black nunito font-bold text-[16px] mt-6">
           No account?{" "}
-          <span className="cursor-pointer text-[#5465F2]">
+          <span onClick={()=> navigate('/sign-up')} className="cursor-pointer text-[#5465F2]">
             Sign up
           </span>
         </p>

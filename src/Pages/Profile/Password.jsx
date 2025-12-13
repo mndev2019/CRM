@@ -10,7 +10,7 @@ const Password = () => {
             <section className="px-10 py-8 bg-white rounded-bl-2xl rounded-br-2xl">
                 <div className="grid grid-cols-1">
                     <div className="col-span-1">
-                        <div className="w-full border-3 border-[#EDEEF4] rounded-[6px] p-3">
+                        <div className="w-full border border-[#EDEEF4] rounded-[6px] p-3">
                             <p className='inter text-[16px] text-gray-600 '>
                                 Enter your current password and a new password below, then click ‘Update’ to change the password you use to login
                             </p>
@@ -19,7 +19,7 @@ const Password = () => {
                 </div>
                 <div className="grid grid-cols-1 mt-4">
                     <div className="col-span-1">
-                        <div className="w-full border-3 border-[#EDEEF4] rounded-[6px] py-5 px-10">
+                        <div className="w-full border border-[#EDEEF4] rounded-[6px] py-5 px-10">
                             <div>
                                 <label htmlFor="currentPassword" className="text-[18px] font-medium text-gray-700 mb-1 block roboto">
                                     Current Password
