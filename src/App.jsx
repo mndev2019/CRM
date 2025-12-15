@@ -41,6 +41,9 @@ import Signup from './Pages/Auth/SignUp'
 import ForgotPassword from './Pages/Auth/ForgotPassword'
 import VerifyOtp from './Pages/Auth/VerifyOtp'
 import ResetPassword from './Pages/Auth/ResetPassword'
+import Websitewidget from './Pages/Marketing/WebsiteWidget/Websitewidget'
+import ShowWidget from './Pages/Marketing/WebsiteWidget/ShowWidget'
+import CreateWidget from './Pages/Marketing/WebsiteWidget/CreateWidget'
 
 
 
@@ -91,6 +94,10 @@ function App() {
           <Route path='/billing-detail' element={<BillingDetail />} />
           <Route path='/usage-report' element={<UsageReport />} />
           <Route path='/call-prefrence' element={<CallPrefrence />} />
+          {/* marketing */}
+          <Route path='/website-widgets' element={<Websitewidget />} />
+          <Route path='/show-widget' element={<ShowWidget />} />
+          <Route path='/create-widget' element={<CreateWidget />} />
         </Route>
 
 

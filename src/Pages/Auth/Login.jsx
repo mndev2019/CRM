@@ -55,7 +55,7 @@ const Login = () => {
               <input type="checkbox" className="accent-[#5465F2]" />
               <span>Remember me</span>
             </label>
-            <button onClick={()=> navigate('/forgot-password')} className="text-[#5465F2] nunito hover:underline font-bold text-[16px]">
+            <button type="button" onClick={()=> navigate('/forgot-password')} className="text-[#5465F2] nunito hover:underline font-bold text-[16px]">
               Forgot password?
             </button>
           </div>

@@ -97,21 +97,18 @@ const menu = [
       },
     ],
   },
-  // {
-  //   title: "Marketing",
-  //   children: [
-  //     {
-  //       heading: "Website Widgets",
-  //       items: [
-  //         { name: "Website Widgets", path: "/website-widgets" },
+  {
+    title: "Marketing",
+    children: [
+      {
+        heading: "Website Widgets",
+        items: [
+          { name: "Website Widgets", path: "/website-widgets" },
 
-  //       ],
-  //     },
-
-
-
-  //   ],
-  // },
+        ],
+      },
+    ],
+  },
 
 ];
 
