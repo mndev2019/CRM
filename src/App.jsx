@@ -44,6 +44,9 @@ import ResetPassword from './Pages/Auth/ResetPassword'
 import Websitewidget from './Pages/Marketing/WebsiteWidget/Websitewidget'
 import ShowWidget from './Pages/Marketing/WebsiteWidget/ShowWidget'
 import CreateWidget from './Pages/Marketing/WebsiteWidget/CreateWidget'
+import ShowAutomation from './Pages/WorkFlow/Automation/ShowAutomation'
+import ShowEmailLibrary from './Pages/ContentLibrary/EmailLibrary/ShowEmailLibrary'
+import ImagesDocument from './Pages/ContentLibrary/ImageDocumentLibrary/ImagesDocument'
 
 
 
@@ -98,6 +101,13 @@ function App() {
           <Route path='/website-widgets' element={<Websitewidget />} />
           <Route path='/show-widget' element={<ShowWidget />} />
           <Route path='/create-widget' element={<CreateWidget />} />
+
+          {/* workflow */}
+          <Route path='/show-automation' element={<ShowAutomation />} />
+
+          {/* content library */}
+          <Route path='/email-library' element={<ShowEmailLibrary />} />
+          <Route path='/images-document' element={<ImagesDocument />} />
         </Route>
 
 

@@ -98,12 +98,37 @@ const menu = [
     ],
   },
   {
+    title: "Content Library",
+    children: [
+      {
+        heading: "Email Library",
+        items: [
+          { name: "Email Library", path: "/email-library" },
+          { name: "Images & Document", path: "/images-document" },
+
+        ],
+      },
+    ],
+  },
+  {
     title: "Marketing",
     children: [
       {
         heading: "Website Widgets",
         items: [
           { name: "Website Widgets", path: "/website-widgets" },
+
+        ],
+      },
+    ],
+  },
+  {
+    title: "WorkFlow",
+    children: [
+      {
+        heading: "Automation",
+        items: [
+          { name: "Automation", path: "/show-automation" },
 
         ],
       },
