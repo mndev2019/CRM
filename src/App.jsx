@@ -54,7 +54,7 @@ import PlainTextEditor from './Pages/Marketing/EmailMarketting/PlainTextEditor'
 import EditWebsiteWidget from './Pages/Marketing/WebsiteWidget/EditWebsiteWidget'
 import Compose from './Pages/Marketing/EmailMarketting/Compose'
 import ShowEmailCampaign from './Pages/Marketing/EmailMarketting/ShowEmailCampaign'
-import Calender from './Component/Calender'
+import Calender from './Component/Calender.jsx'
 
 
 
@@ -125,7 +125,7 @@ function App() {
           <Route path='/images-document' element={<ImagesDocument />} />
 
           {/* calender */}
-          <Route path='/calender' element={<Calender/>}/>
+          <Route path='/Calendar' element={<Calender/>}/>
         </Route>
 
 
