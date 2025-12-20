@@ -47,6 +47,14 @@ import CreateWidget from './Pages/Marketing/WebsiteWidget/CreateWidget'
 import ShowAutomation from './Pages/WorkFlow/Automation/ShowAutomation'
 import ShowEmailLibrary from './Pages/ContentLibrary/EmailLibrary/ShowEmailLibrary'
 import ImagesDocument from './Pages/ContentLibrary/ImageDocumentLibrary/ImagesDocument'
+import EmailCampaign from './Pages/Marketing/EmailMarketting/EmailCampaign'
+import CreateEmailCampaign from './Pages/Marketing/EmailMarketting/CreateEmailCampaign'
+import RichTextEditor from './Pages/Marketing/EmailMarketting/RichTextEditor'
+import PlainTextEditor from './Pages/Marketing/EmailMarketting/PlainTextEditor'
+import EditWebsiteWidget from './Pages/Marketing/WebsiteWidget/EditWebsiteWidget'
+import Compose from './Pages/Marketing/EmailMarketting/Compose'
+import ShowEmailCampaign from './Pages/Marketing/EmailMarketting/ShowEmailCampaign'
+import Calender from './Component/Calender'
 
 
 
@@ -98,8 +106,15 @@ function App() {
           <Route path='/usage-report' element={<UsageReport />} />
           <Route path='/call-prefrence' element={<CallPrefrence />} />
           {/* marketing */}
+          <Route path='/email-campaign' element={<EmailCampaign/>}/>
+          <Route path='/create-email-campaign' element={<CreateEmailCampaign/>}/>
+          <Route path='/show-emailcampaign' element={<ShowEmailCampaign/>}/>
+          <Route path='/compose-emailcampaign' element={<Compose/>}/>
+          <Route path='/rich-texteditor' element={<RichTextEditor/>}/>
+          <Route path='/plain-texteditor' element={<PlainTextEditor/>}/>
           <Route path='/website-widgets' element={<Websitewidget />} />
           <Route path='/show-widget' element={<ShowWidget />} />
+          <Route path='/edit-websitewidget' element={<EditWebsiteWidget/>}/>
           <Route path='/create-widget' element={<CreateWidget />} />
 
           {/* workflow */}
@@ -108,6 +123,9 @@ function App() {
           {/* content library */}
           <Route path='/email-library' element={<ShowEmailLibrary />} />
           <Route path='/images-document' element={<ImagesDocument />} />
+
+          {/* calender */}
+          <Route path='/calender' element={<Calender/>}/>
         </Route>
 
 

@@ -120,7 +120,9 @@ const Signup = () => {
             {/* RIGHT ILLUSTRATION */}
             <div
                 className="relative h-full flex flex-col items-center justify-center text-white text-center px-10"
-                style={{ background: "linear-gradient(to bottom, #444A60 15%, #5C6290 91%)" }}
+                style={{
+                    background: "linear-gradient(180deg, #01518C 55.29%, #05426F 100%)",
+                }}
             >
                 <img src={loginIllustration} alt="illustration" className="max-w-[400px]" />
 

@@ -68,7 +68,9 @@ const ForgotPassword = () => {
 
             {/* RIGHT */}
             <div className="flex items-center justify-center text-white"
-                style={{ background: "linear-gradient(to bottom, #444A60, #5C6290)" }}
+                style={{
+                    background: "linear-gradient(180deg, #01518C 55.29%, #05426F 100%)",
+                }}
             >
                 <img src={loginIllustration} className="max-w-[350px]" />
             </div>

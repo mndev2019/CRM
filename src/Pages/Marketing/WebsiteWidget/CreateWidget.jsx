@@ -2,8 +2,10 @@ import React from "react";
 import Topnav from "../../../Component/Topnav";
 import websitewidget from "../../../assets/Images/globe 1.png";
 import { FiEdit2 } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const CreateWidget = () => {
+    const navigate = useNavigate();
     return (
         <>
             <Topnav
@@ -47,6 +49,7 @@ const CreateWidget = () => {
                             </div>
 
                             <button
+                            onClick={()=> navigate('/edit-websitewidget')}
                                 className="flex items-center gap-2 text-white px-4 py-2 rounded-md text-sm font-medium"
                                 style={{
                                     background: "linear-gradient(0deg, #2A75FF 0%, #4FADFF 71.15%)",

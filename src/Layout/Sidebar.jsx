@@ -114,6 +114,13 @@ const menu = [
     title: "Marketing",
     children: [
       {
+        heading: "Email Campaign",
+        items: [
+          { name: "Email Campaign", path: "/email-campaign" },
+
+        ],
+      },
+      {
         heading: "Website Widgets",
         items: [
           { name: "Website Widgets", path: "/website-widgets" },
@@ -175,7 +182,7 @@ const Sidebar = () => {
       <div className="flex h-screen select-none">
 
         {/* LEFT ICON BAR */}
-        <div className="w-[60px] bg-[#0D1424] text-white flex flex-col items-center py-4 gap-5">
+        <div className="w-[60px]  bg-[linear-gradient(180deg,_#01518C_55.29%,_#05426F_100%)] text-white flex flex-col items-center py-4 gap-5 border-r border-[#B6C0D4]">
           {iconMenu.map((item, index) => {
             if (item.icon === shortprofile) {
               return (
@@ -207,7 +214,7 @@ const Sidebar = () => {
         </div>
 
         {/* MAIN SIDEBAR */}
-        <aside className="w-64 bg-[#3D4458] text-white h-screen p-6">
+        <aside className="w-64  bg-[linear-gradient(180deg,_#01518C_55.29%,_#05426F_100%)] text-white h-screen p-6">
 
           <h2 className="text-xl font-semibold mb-6">Setup</h2>
 
