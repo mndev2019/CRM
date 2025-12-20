@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import OtpInput from "react-otp-input";
 import loginIllustration from "../../assets/Images/loginside.png";
@@ -7,13 +7,30 @@ import login from "../../assets/Images/logonew.png";
 const VerifyOtp = () => {
   const navigate = useNavigate();
   const [otp, setOtp] = useState("");
+  const [timer, setTimer] = useState(30);
+
+  // ⏱️ Countdown logic
+  useEffect(() => {
+    if (timer === 0) return;
+
+    const interval = setInterval(() => {
+      setTimer((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [timer]);
+
+  // 🔁 Resend handler
+  const handleResend = () => {
+    setTimer(30);
+    setOtp("");
+  };
 
   return (
     <section className="h-screen grid grid-cols-2 overflow-hidden">
-
       {/* LEFT */}
       <div className="flex flex-col justify-center px-20 bg-white">
-        <img src={login} className="h-[50px] w-[150px]" />
+        <img src={login} className="h-[50px] w-[150px]" alt="logo" />
 
         <h2 className="pt-10 text-[28px] font-extrabold nunito">
           Verify OTP
@@ -47,11 +64,21 @@ const VerifyOtp = () => {
           Verify OTP
         </button>
 
+        {/* TIMER + RESEND */}
         <p className="text-sm mt-6 inter">
           Didn’t receive OTP?{" "}
-          <span className="text-[#5465F2] cursor-pointer font-semibold">
-            Resend
-          </span>
+          {timer > 0 ? (
+            <span className="text-gray-400 ml-1">
+              Resend in {timer}s
+            </span>
+          ) : (
+            <span
+              onClick={handleResend}
+              className="text-[#5465F2] cursor-pointer font-semibold ml-1"
+            >
+              Resend
+            </span>
+          )}
         </p>
       </div>
 
@@ -62,7 +89,7 @@ const VerifyOtp = () => {
           background: "linear-gradient(180deg, #01518C 55.29%, #05426F 100%)",
         }}
       >
-        <img src={loginIllustration} className="max-w-[350px]" />
+        <img src={loginIllustration} className="max-w-[350px]" alt="illustration" />
       </div>
     </section>
   );
