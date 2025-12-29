@@ -45,7 +45,7 @@ const Recepeints = () => {
                                 <button
                                     key={item.key}
                                     onClick={() => setActiveTab(item.key)}
-                                    className={`w-full py-2 text-sm  text-white transition border border-[#6A9EFF]
+                                    className={`w-full py-1 text-sm  text-white transition border border-[#6A9EFF]
                     ${activeTab === item.key
                                             ? "bg-[#40ACFF] "
                                             : "bg-[#8FD4FF]  hover:bg-blue-200"

@@ -18,7 +18,7 @@ const Topnav = ({title , subtitle , icon}) => {
                         </div>
                         <div className="px-5">
                             <div className="">
-                                <img src={icon} style={{ height: "60px", width: "60px" }} alt="" />
+                                <img src={icon} style={{ height: "50px", width: "50px" }} alt="" />
                             </div>
                         </div>
                     </div>
