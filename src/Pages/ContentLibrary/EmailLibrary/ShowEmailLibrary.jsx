@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Topnav from '../../../Component/Topnav'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import { FiChevronDown, FiSearch } from 'react-icons/fi';
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
+import CreateEmailTemplateModal from './CreateEmailTemplateModal';
 
 const ShowEmailLibrary = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
+    const [openModal, setOpenModal] = useState(false);
     return (
         <>
             <Topnav
@@ -29,10 +31,14 @@ const ShowEmailLibrary = () => {
                         </div>
 
                         {/* Button */}
-                        <button onClick={() => navigate('/create-widget')} className="text-white font-semibold px-4 py-2 rounded-md cursor-pointer
-                                          bg-[linear-gradient(180deg,#049B1D_22.26%,#01582C_100%)]">
-                           Add Email Template
+                        <button
+                            onClick={() => setOpenModal(true)}
+                            className="text-white font-semibold px-4 py-2 rounded-md
+             bg-[linear-gradient(180deg,#049B1D_22.26%,#01582C_100%)]"
+                        >
+                            Add Email Template
                         </button>
+
                     </div>
 
                     {/* Filters */}
@@ -140,6 +146,10 @@ const ShowEmailLibrary = () => {
                 </div>
 
             </section>
+            <CreateEmailTemplateModal
+                isOpen={openModal}
+                onClose={() => setOpenModal(false)}
+            />
 
         </>
     )

@@ -55,6 +55,11 @@ import EditWebsiteWidget from './Pages/Marketing/WebsiteWidget/EditWebsiteWidget
 import Compose from './Pages/Marketing/EmailMarketting/Compose'
 import ShowEmailCampaign from './Pages/Marketing/EmailMarketting/ShowEmailCampaign'
 import Calender from './Component/Calender.jsx'
+import CreateProfile from './Pages/Profile/CreateProfile.jsx'
+import CreateVisualEmailTemplate from './Pages/ContentLibrary/EmailLibrary/CreateVisualEmailTemplate.jsx'
+import CreateRichTextEditorEmail from './Pages/ContentLibrary/EmailLibrary/CreateRichTextEditorEmail.jsx'
+import Recepeints from './Pages/Marketing/Recepeints/index.jsx'
+import Schedule from './Pages/Marketing/Schedule/index.jsx'
 
 
 
@@ -73,6 +78,7 @@ function App() {
 
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/create-profile' element={<CreateProfile/>}/>
           <Route path='/password' element={<Password />} />
           <Route path='/email-signature' element={<EmailSingnature />} />
           <Route path='/my-report' element={<ReportSubscription />} />
@@ -116,12 +122,16 @@ function App() {
           <Route path='/show-widget' element={<ShowWidget />} />
           <Route path='/edit-websitewidget' element={<EditWebsiteWidget/>}/>
           <Route path='/create-widget' element={<CreateWidget />} />
+          <Route path='/recepeints' element={<Recepeints/>}/>
+          <Route path='/schedule' element={<Schedule/>}/>
 
           {/* workflow */}
           <Route path='/show-automation' element={<ShowAutomation />} />
 
           {/* content library */}
           <Route path='/email-library' element={<ShowEmailLibrary />} />
+          <Route path='/visual-email-template' element={<CreateVisualEmailTemplate/>}/>
+          <Route path='/richtext-email-template' element={<CreateRichTextEditorEmail/>}/>
           <Route path='/images-document' element={<ImagesDocument />} />
 
           {/* calender */}

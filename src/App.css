@@ -17,3 +17,14 @@
 body {
     background-color: #EDEEF4;
 }
+.react-calendar{
+    border: none !important;
+    border-radius: 0 !important;
+}
+.react-calendar__tile--active:enabled:hover, .react-calendar__tile--active {
+    border-radius: 50% !important;
+    background-color: black !important;
+}
+.react-calendar__tile--now:enabled:hover, .react-calendar__tile--now{
+     border-radius: 50% !important;
+}
