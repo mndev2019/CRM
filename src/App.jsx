@@ -1,7 +1,7 @@
 import { createBrowserRouter, createRoutesFromElements, Navigate, Route, RouterProvider } from 'react-router-dom'
 import './App.css'
 import Layout from './Layout/Layout'
-import Dashboard from './Pages/Dashboard'
+
 
 import Profile from './Pages/Profile/Profile'
 
@@ -60,6 +60,7 @@ import CreateVisualEmailTemplate from './Pages/ContentLibrary/EmailLibrary/Creat
 import CreateRichTextEditorEmail from './Pages/ContentLibrary/EmailLibrary/CreateRichTextEditorEmail.jsx'
 import Recepeints from './Pages/Marketing/Recepeints/index.jsx'
 import Schedule from './Pages/Marketing/Schedule/index.jsx'
+import Dashboard from './Pages/Dashboard/Dashboard.jsx'
 
 
 
@@ -76,7 +77,7 @@ function App() {
 
         <Route path='/' element={<Layout />}>
 
-          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path='/profile' element={<Profile />} />
           <Route path='/create-profile' element={<CreateProfile/>}/>
           <Route path='/password' element={<Password />} />

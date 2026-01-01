@@ -17,6 +17,7 @@
 body {
     background-color: #EDEEF4;
 }
+
 .react-calendar{
     border: none !important;
     border-radius: 0 !important;
@@ -27,4 +28,20 @@ body {
 }
 .react-calendar__tile--now:enabled:hover, .react-calendar__tile--now{
      border-radius: 50% !important;
+}
+/* chatbotcss */
+.react-chatbot-kit-chat-container {
+  border-radius: 0;
+  width: 362px !important;
+}
+
+.react-chatbot-kit-chat-message-container {
+  background-color: #f9fafb;
+}
+
+/* .react-chatbot-kit-chat-input {
+  border-radius: 9999px;
+} */
+.react-chatbot-kit-chat-bot-message{
+    margin-left:10px !important;
 }

@@ -61,7 +61,7 @@ const Login = () => {
           </div>
 
           {/* Button */}
-          <button   type="button" onClick={()=> navigate('/profile')} className="w-full bg-gray-800 text-white py-2 rounded-md hover:bg-black duration-200">
+          <button   type="button" onClick={()=> navigate('/dashboard')} className="w-full bg-gray-800 text-white py-2 rounded-md hover:bg-black duration-200">
             Continue
           </button>
         </form>

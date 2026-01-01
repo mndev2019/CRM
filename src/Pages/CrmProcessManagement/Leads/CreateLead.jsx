@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import Topnav from '../../../Component/Topnav'
 import lead from '../../../assets/Images/newlead.png'
+import CRMChatbot from '../../../Component/CRMChatbot'
 
 const CreateLead = () => {
     const [active, setActive] = useState("Lead Details")
     return (
         <>
+      
             <Topnav
                 title="Create Leads"
                 subtitle="View and organize every new lead added to your pipeline."

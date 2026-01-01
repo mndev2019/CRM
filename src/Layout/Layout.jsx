@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidebar from './Sidebar'
 import { Outlet} from 'react-router-dom'
+import CRMChatbot from '../Component/CRMChatbot'
 
 const Layout = () => {
     // const navigate = useNavigate();
@@ -25,7 +26,9 @@ const Layout = () => {
                     <main className="p-5 pb-5 ">
                         <Outlet />
                     </main>
+
                 </div>
+                  <CRMChatbot/>
             </div>
         </>
     )

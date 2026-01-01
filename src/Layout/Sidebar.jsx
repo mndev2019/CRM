@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BiPieChartAlt2, BiSearchAlt } from "react-icons/bi";
-import { CgNotes } from "react-icons/cg";
+import { CgNotes, CgProfile } from "react-icons/cg";
 import { CiCalendarDate } from "react-icons/ci";
 import { FaRegEnvelope, FaShoppingCart } from "react-icons/fa";
 import { FiSearch, FiSettings } from "react-icons/fi";
@@ -11,12 +11,36 @@ import { Link, useLocation } from "react-router-dom";
 import shortlogo from "../assets/Images/shortlogo.png";
 import shortprofile from "../assets/Svg/shortprofile.svg";
 import ProfileSidebar from "../Component/ProfileSidebar";
+import { GoPeople } from "react-icons/go";
+import { TbDeviceDesktopAnalytics } from "react-icons/tb";
+import { VscServerProcess } from "react-icons/vsc";
+import { SiContentstack } from "react-icons/si";
+import marketing from '../assets/Images/marketing.png'
+import workflow from '../assets/Images/automation.png'
+import contentlibrary from '../assets/Images/contentlibrary.png'
+import crm from '../assets/Images/crm-process.png'
+import profile from '../assets/Images/user (1).png'
+import analytics from '../assets/Images/analysis.png'
 
 // ------------------------------------------------------------
 // FINAL MENU STRUCTURE (AS YOU WANT)
 // ------------------------------------------------------------
 const menu = [
+   {
+    icon:analytics,
+    title: "CRM Analytics",
+    children: [
+      {
+        heading: "View Analytics",
+        items: [
+          { name: "Dashboard", path: "/dashboard" },
+
+        ],
+      },
+    ],
+  },
   {
+    icon:profile,
     title: "Profile",
     children: [
       {
@@ -55,6 +79,7 @@ const menu = [
   },
 
   {
+    icon:crm,
     title: "CRM Process Management",
     children: [
       {
@@ -98,6 +123,7 @@ const menu = [
     ],
   },
   {
+    icon:contentlibrary,
     title: "Content Library",
     children: [
       {
@@ -111,6 +137,7 @@ const menu = [
     ],
   },
   {
+    icon:marketing,
     title: "Marketing",
     children: [
       {
@@ -130,6 +157,7 @@ const menu = [
     ],
   },
   {
+    icon:workflow,
     title: "WorkFlow",
     children: [
       {
@@ -200,7 +228,7 @@ const Sidebar = () => {
               <Link
                 key={index}
                 to={item.path}
-                className={`text-xl p-2 rounded-md flex items-center justify-center ${pathname === item.path ? "bg-white text-black" : "hover:bg-[#1A2539]"
+                className={`text-xl p-2 rounded-md flex items-center justify-center ${pathname === item.path ? "bg-[#6167A0] text-black" : "hover:bg-[#1A2539]"
                   }`}
               >
                 {typeof item.icon === "string" ? (
@@ -236,10 +264,11 @@ const Sidebar = () => {
                 className="flex items-center gap-2 cursor-pointer"
                 onClick={() => toggleMain(main.title)}
               >
-                <span className="h-5 w-5 border border-white rounded flex items-center justify-center">
-                  <IoIosArrowDown
+                <span className="h-8 w-8  rounded flex items-center justify-center">
+                  {/* <IoIosArrowDown
                     className={`${openMain === main.title ? "rotate-180" : ""} transition-all`}
-                  />
+                  /> */}
+                 <img src={main.icon}/>
                 </span>
                 <span className="text-sm font-semibold">{main.title}</span>
               </div>
