@@ -21,7 +21,7 @@ const CRMChatbot = () => {
 
       {/* Chat Window */}
       {open && (
-        <div className="fixed bottom-24 right-6 w-[360px] rounded-2xl shadow-2xl overflow-hidden bg-white">
+        <div className="fixed bottom-24 md:right-6 right-2 md:w-[360px] w-[350px] rounded-2xl shadow-2xl overflow-hidden bg-white">
           
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-3 flex justify-between items-center">
