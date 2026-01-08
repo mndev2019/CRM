@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaPhone, FaEnvelope, FaUserEdit, FaRegCopy } from "react-icons/fa";
-import userIcon from "../../assets/Images/logoremovebg.png";
+import userIcon from "../../assets/Images/logo.png";
 import Topnav from "../../Component/Topnav";
 import { RiEdit2Fill } from "react-icons/ri";
 import edit from '../../assets/Svg/edit.svg'

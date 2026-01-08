@@ -45,3 +45,16 @@ body {
 .react-chatbot-kit-chat-bot-message{
     margin-left:10px !important;
 }
+
+
+.punch-in {
+  background: #22c55e !important;
+  color: white !important;
+  border-radius: 50%;
+}
+
+.punch-out {
+  background: #ef4444 !important;
+  color: white !important;
+  border-radius: 50%;
+}

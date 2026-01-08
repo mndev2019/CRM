@@ -1,9 +1,8 @@
-import React from 'react'
-import Topnav from '../../../Component/Topnav'
-import lead from '../../../assets/Images/newlead.png'
+import React from "react";
+import Topnav from "../../../Component/Topnav";
+import lead from "../../../assets/Images/newlead.png";
 
 const CreateClientLead = () => {
-
     return (
         <>
             <Topnav
@@ -11,244 +10,166 @@ const CreateClientLead = () => {
                 subtitle="View and organize every new lead added to your pipeline."
                 icon={lead}
             />
-            <section className='p-6 bg-white rounded-bl-2xl rounded-br-2xl'>
-                <div className='flex gap-5'>
 
-                    <button
-
-
-                        className="inter font-medium text-[18px] cursor-pointer pb-1 border-b-3 border-[#2A75FF]"
-                    >
+            <section className="p-3 sm:p-6 bg-white rounded-bl-2xl rounded-br-2xl">
+                <div className="flex gap-5">
+                    <button className="inter font-medium text-[18px] cursor-pointer pb-1 border-b-3 border-[#2A75FF]">
                         Lead Details
                     </button>
-
-
-
-
                 </div>
 
-                <div className="mt-6 grid grid-cols-3 gap-6">
+                {/* FORM GRID */}
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                    {/* ---------- First Row ----------- */}
+                    {/* First Name */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">First Name</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
+                    {/* Last Name */}
                     <div className="flex flex-col">
-                        <label className="text-[16px] text-gray-700  font-bold mb-1">Last Name</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <label className="text-[16px] text-gray-700 mb-1 font-bold">Last Name</label>
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
+                    {/* Email */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Email</label>
-                        <input
-                            type="email"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input type="email" className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- Phone Number ---------- */}
+                    {/* Phone */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Phone Number</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- Company ---------- */}
+                    {/* Company */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Company</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- Website ---------- */}
+                    {/* Website */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Website</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- Checkboxes ---------- */}
-                    <div className="col-span-3 grid grid-cols-4 gap-4 mt-2">
-
+                    {/* Checkboxes */}
+                    <div className="col-span-1 sm:col-span-2 lg:col-span-3 grid grid-cols-2 sm:grid-cols-4 gap-4 mt-2">
                         {["Do Not SMS", "Do Not Track", "Do Not Email", "Do Not Call"].map((label, i) => (
                             <label key={i} className="flex items-center gap-2">
                                 <input type="checkbox" className="w-4 h-4" />
                                 <span className="text-[16px] text-gray-700 font-bold">{label}</span>
                             </label>
                         ))}
-
                     </div>
 
-                    {/* ---------- Lead Source Select Box ---------- */}
+                    {/* Lead Source */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Lead Source</label>
                         <select className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none">
-                            <option value="">Select Lead Source</option>
-                            <option>Facebook</option>
-                            <option>Google Ads</option>
-                            <option>LinkedIn</option>
-                            <option>Referral</option>
+                            <option>Select Lead Source</option>
                         </select>
                     </div>
 
-                    {/* ---------- Source Medium ---------- */}
+                    {/* Source Medium */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Source Medium</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- Source Content ---------- */}
+                    {/* Source Content */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Source Content</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- Job Title ---------- */}
+                    {/* Job Title */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Job Title</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- Notes ---------- */}
-                    <div className="flex flex-col col-span-3">
+                    {/* Notes */}
+                    <div className="flex flex-col col-span-1 sm:col-span-2 lg:col-span-3">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Notes</label>
-                        <textarea
-                            rows="3"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        ></textarea>
+                        <textarea rows="3" className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- Quality Score ---------- */}
+                    {/* Quality Score */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Quality Score</label>
-                        <input
-                            type="number"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input type="number" className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- Lead Stage ---------- */}
+                    {/* Lead Stage */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Lead Stage</label>
                         <select className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none">
                             <option>Select Stage</option>
-                            <option>New</option>
-                            <option>Contacted</option>
-                            <option>Qualified</option>
-                            <option>Disqualified</option>
                         </select>
                     </div>
 
-                    {/* ---------- Owner ---------- */}
+                    {/* Owner */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Owner</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- Address 1 ---------- */}
+                    {/* Address 1 */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Address 1</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- Address 2 ---------- */}
+                    {/* Address 2 */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Address 2</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- City ---------- */}
+                    {/* City */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">City</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- State ---------- */}
+                    {/* State */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">State</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- Country ---------- */}
+                    {/* Country */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Country</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- Zip ---------- */}
+                    {/* Zip */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Zip</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
 
-                    {/* ---------- Lead Origin ---------- */}
+                    {/* Lead Origin */}
                     <div className="flex flex-col">
                         <label className="text-[16px] text-gray-700 mb-1 font-bold">Lead Origin</label>
-                        <input
-                            type="text"
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
+
+                    {/* Referral Code */}
                     <div className="flex flex-col">
-                        <label className="text-[16px] text-gray-700 mb-1 font-bold">
-                            Referral Code
-                        </label>
-                        <input
-                            type="text"
-
-                            className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
-                        />
+                        <label className="text-[16px] text-gray-700 mb-1 font-bold">Referral Code</label>
+                        <input className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none" />
                     </div>
-
 
                 </div>
 
-
-
+                {/* Save Button */}
                 <div className="mt-5">
                     <button className="bg-[#2A75FF] text-white px-6 py-2 rounded-md text-[15px] font-medium hover:bg-blue-700">
                         Save
@@ -256,7 +177,7 @@ const CreateClientLead = () => {
                 </div>
             </section>
         </>
-    )
-}
+    );
+};
 
-export default CreateClientLead
+export default CreateClientLead;

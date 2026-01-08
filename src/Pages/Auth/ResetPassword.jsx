@@ -28,18 +28,18 @@ const ResetPassword = () => {
   };
 
   return (
-    <section className="h-screen grid grid-cols-2 overflow-hidden">
-
+    <section className="min-h-screen grid grid-cols-1 lg:grid-cols-2">
       {/* LEFT CONTENT */}
-      <div className="flex flex-col justify-center px-20 bg-white">
-
+      <div className="flex flex-col justify-center px-6 sm:px-12 lg:px-20 bg-white">
+        {/* Logo */}
         <img
           src={login}
           alt="logo"
-          className="h-[50px] w-[150px] object-contain"
+          className="h-[50px] w-[150px] object-contain mb-6"
         />
 
-        <h2 className="pt-10 pb-3 text-2xl font-extrabold nunito text-black text-[28px]">
+        {/* Title */}
+        <h2 className="pt-6 pb-3 font-extrabold nunito text-black text-[24px] sm:text-[28px]">
           Reset Password
         </h2>
 
@@ -49,10 +49,9 @@ const ResetPassword = () => {
 
         {/* FORM */}
         <form className="space-y-6" onSubmit={handleSubmit}>
-
           {/* New Password */}
           <div>
-            <label className="block text-[18px] font-medium mb-1 inter">
+            <label className="block text-[16px] sm:text-[18px] font-medium mb-1 inter">
               New Password
             </label>
             <div className="border-b pb-1">
@@ -70,7 +69,7 @@ const ResetPassword = () => {
 
           {/* Confirm Password */}
           <div>
-            <label className="block text-[18px] font-medium mb-1 inter">
+            <label className="block text-[16px] sm:text-[18px] font-medium mb-1 inter">
               Confirm Password
             </label>
             <div className="border-b pb-1">
@@ -88,7 +87,7 @@ const ResetPassword = () => {
 
           {/* Captcha */}
           <div>
-            <label className="block text-[18px] font-medium mb-1 inter">
+            <label className="block text-[16px] sm:text-[18px] font-medium mb-1 inter">
               Captcha
             </label>
             <div className="border-b pb-1">
@@ -114,7 +113,7 @@ const ResetPassword = () => {
         </form>
 
         {/* Back to Login */}
-        <p className="text-black nunito font-bold text-[16px] mt-6">
+        <p className="text-black nunito font-bold text-[15px] sm:text-[16px] mt-6">
           Remember your password?{" "}
           <span
             className="cursor-pointer text-[#5465F2]"
@@ -125,9 +124,9 @@ const ResetPassword = () => {
         </p>
       </div>
 
-      {/* RIGHT ILLUSTRATION */}
+      {/* RIGHT ILLUSTRATION (Desktop only) */}
       <div
-        className="relative h-full flex flex-col items-center justify-center text-white text-center px-10"
+        className="hidden lg:flex relative h-full flex-col items-center justify-center text-white text-center px-10"
         style={{
           background: "linear-gradient(180deg, #01518C 55.29%, #05426F 100%)",
         }}
@@ -135,7 +134,7 @@ const ResetPassword = () => {
         <img
           src={loginIllustration}
           alt="illustration"
-          className="max-w-[400px]"
+          className="max-w-[400px] select-none"
         />
 
         <h3 className="font-bold text-[23px] mb-2 nunito">

@@ -27,12 +27,18 @@ const VerifyOtp = () => {
   };
 
   return (
-    <section className="h-screen grid grid-cols-2 overflow-hidden">
+    <section className="min-h-screen grid grid-cols-1 lg:grid-cols-2">
       {/* LEFT */}
-      <div className="flex flex-col justify-center px-20 bg-white">
-        <img src={login} className="h-[50px] w-[150px]" alt="logo" />
+      <div className="flex flex-col justify-center px-6 sm:px-12 lg:px-20 bg-white">
+        {/* Logo */}
+        <img
+          src={login}
+          className="h-[50px] w-[150px] mb-6"
+          alt="logo"
+        />
 
-        <h2 className="pt-10 text-[28px] font-extrabold nunito">
+        {/* Heading */}
+        <h2 className="pt-6 text-[24px] sm:text-[28px] font-extrabold nunito">
           Verify OTP
         </h2>
 
@@ -47,7 +53,7 @@ const VerifyOtp = () => {
           numInputs={6}
           shouldAutoFocus
           inputType="tel"
-          containerStyle="flex justify-between"
+          containerStyle="flex justify-between max-w-[320px]"
           renderInput={(props) => (
             <input
               {...props}
@@ -56,17 +62,18 @@ const VerifyOtp = () => {
           )}
         />
 
+        {/* Verify Button */}
         <button
           disabled={otp.length !== 6}
           onClick={() => navigate("/reset-password")}
-          className="w-full mt-10 bg-gray-800 text-white py-2 rounded-md disabled:opacity-50"
+          className="w-full mt-10 bg-gray-800 text-white py-2 rounded-md disabled:opacity-50 hover:bg-black duration-200"
         >
           Verify OTP
         </button>
 
         {/* TIMER + RESEND */}
         <p className="text-sm mt-6 inter">
-          Didn’t receive OTP?{" "}
+          Didn’t receive OTP?
           {timer > 0 ? (
             <span className="text-gray-400 ml-1">
               Resend in {timer}s
@@ -82,14 +89,18 @@ const VerifyOtp = () => {
         </p>
       </div>
 
-      {/* RIGHT */}
+      {/* RIGHT (Desktop only) */}
       <div
-        className="flex items-center justify-center text-white px-10"
+        className="hidden lg:flex items-center justify-center text-white px-10"
         style={{
           background: "linear-gradient(180deg, #01518C 55.29%, #05426F 100%)",
         }}
       >
-        <img src={loginIllustration} className="max-w-[350px]" alt="illustration" />
+        <img
+          src={loginIllustration}
+          className="max-w-[350px] select-none"
+          alt="illustration"
+        />
       </div>
     </section>
   );

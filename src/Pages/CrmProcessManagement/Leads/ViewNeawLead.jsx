@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Topnav from "../../../Component/Topnav";
 import newlead from "../../../assets/Images/newlead.png";
 import { FiSearch } from "react-icons/fi";
-import { HiOutlineChevronDown, HiOutlineDotsVertical } from "react-icons/hi";
+import { HiOutlineDotsVertical } from "react-icons/hi";
 import { FaRegPlusSquare } from "react-icons/fa";
 import { GoPlus } from "react-icons/go";
 import { CiEraser } from "react-icons/ci";
@@ -12,230 +12,180 @@ import { useNavigate } from "react-router-dom";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
 const ViewNeawLead = () => {
-    const navigate = useNavigate();
-    const [showCreateMenu, setShowCreateMenu] = useState(false);
-    const [showDotsMenu, setShowDotsMenu] = useState(false);
+  const navigate = useNavigate();
+  const [showCreateMenu, setShowCreateMenu] = useState(false);
+  const [showDotsMenu, setShowDotsMenu] = useState(false);
+  const [activityDate, setactivityDate] = useState("");
 
-    const statusClasses = {
-        Processing: "bg-[#E6F9E8] text-[#1F7A24]",
-        Completed: "bg-[#EFFFF0] text-[#049B1D]",
-        Failed: "bg-[#FDD7D7] text-[#FF1212]",
-        Pending: "bg-[#FDD7D7] text-[#FF1212]",
-    };
-    const [activityDate, setactivityDate] = useState("");
-    return (
-        <>
-            <Topnav
-                title="My Leads"
-                subtitle="View and organize every  lead added to your pipeline."
-                icon={newlead}
-            />
+  const statusClasses = {
+    Processing: "bg-[#E6F9E8] text-[#1F7A24]",
+    Completed: "bg-[#EFFFF0] text-[#049B1D]",
+    Failed: "bg-[#FDD7D7] text-[#FF1212]",
+    Pending: "bg-[#FDD7D7] text-[#FF1212]",
+  };
 
-            <section className="p-6 bg-white rounded-bl-2xl rounded-br-2xl">
-                <div className="rounded-[12px] border border-[#EDEEF4] p-3">
-                    {/* ---------- Filter Row ---------- */}
-                    <div className="flex justify-between py-2 border-b-2 border-[#EDEEF4]">
-                        <div className="flex gap-2 items-center ">
-                            <FaRegPlusSquare />
-                            <h2 className="inter font-mediun text-[18px]">
-                                Filter
-                            </h2>
-                        </div>
-                        <div className="flex gap-1 items-center relative">
+  return (
+    <>
+      <Topnav
+        title="My Leads"
+        subtitle="View and organize every lead added to your pipeline."
+        icon={newlead}
+      />
 
-                            {/* Create Lead Button */}
-                            <button
-                                onClick={() => {
-                                    setShowCreateMenu(!showCreateMenu);
-                                    setShowDotsMenu(false);
-                                }}
-                                className="bg-[#8693FF] hover:bg-[#7785f5] transition text-white nunito flex items-center gap-2 font-semibold text-[15px] rounded-md py-2 px-4 shadow-sm"
-                            >
-                                <GoPlus className="text-[18px]" />
-                                Create Lead
-                            </button>
+      <section className="p-4 sm:p-6 bg-white rounded-bl-2xl rounded-br-2xl">
+        <div className="rounded-[12px] border border-[#EDEEF4] p-3">
 
-                            {/* 3 Dots Button */}
-                            <HiOutlineDotsVertical
-                                onClick={() => {
-                                    setShowDotsMenu(!showDotsMenu);
-                                    setShowCreateMenu(false);
-                                }}
-                                className="cursor-pointer text-[#8693FF] border border-[#8693FF] rounded-[4px] p-1 text-3xl"
-                            />
+          {/* ================= FILTER HEADER ================= */}
+          <div className="flex flex-col sm:flex-row justify-between gap-4 py-2 border-b-2 border-[#EDEEF4]">
 
-                            {/* ---------------- CREATE LEAD MENU ---------------- */}
-                            {showCreateMenu && (
-                                <div className="bg-white absolute top-12 left-0 rounded-[4px] shadow z-20 w-40">
-                                    <p onClick={() => navigate('/create-lead')} className="nunito font-semibold text-[14px] hover:bg-[#EDEEF4] py-2 px-5 cursor-pointer">
-                                        Quick add lead
-                                    </p>
-                                    <p onClick={() => navigate('/create-lead')} className="nunito font-semibold text-[14px] hover:bg-[#EDEEF4] py-2 px-5 cursor-pointer">
-                                        Add new lead
-                                    </p>
-                                </div>
-                            )}
+            <div className="flex gap-2 items-center">
+              {/* <FaRegPlusSquare />
+              <h2 className="inter font-medium text-[18px]">Filter</h2> */}
+            </div>
 
-                            {/* ---------------- 3 DOTS IMPORT / EXPORT MENU ---------------- */}
-                            {showDotsMenu && (
-                                <div className="bg-white absolute top-12 right-0 rounded-[4px] shadow z-20 w-44">
-                                    <p className="nunito flex items-center gap-2 font-semibold text-[14px] hover:bg-[#EDEEF4] py-2 px-4 cursor-pointer">
-                                        <LuFileInput className="" size={18} /> Import Leads
-                                    </p>
-                                    <p className="nunito flex items-center gap-2 font-semibold text-[14px] hover:bg-[#EDEEF4] py-2 px-4 cursor-pointer">
-                                        <TbFileExport size={18} /> Export Leads
-                                    </p>
-                                </div>
-                            )}
+            <div className="flex gap-2 items-center relative flex-wrap">
 
-                        </div>
+              {/* Create Lead */}
+              <button
+                onClick={() => {
+                  setShowCreateMenu(!showCreateMenu);
+                  setShowDotsMenu(false);
+                }}
+                className="bg-[#8693FF] text-white nunito flex items-center gap-2 font-semibold text-[15px] rounded-md py-2 px-4"
+              >
+                <GoPlus className="text-[18px]" />
+                Create Lead
+              </button>
 
+              {/* Dots */}
+              <HiOutlineDotsVertical
+                onClick={() => {
+                  setShowDotsMenu(!showDotsMenu);
+                  setShowCreateMenu(false);
+                }}
+                className="cursor-pointer text-[#8693FF] border border-[#8693FF] rounded-[4px] p-1 text-3xl"
+              />
 
-                    </div>
-                    <div className="flex items-center justify-between py-3">
-
-                        {/* ---------------- LEFT SECTION ---------------- */}
-                        <div className="flex items-center gap-3">
-
-                            {/* Lead Activity Date Dropdown */}
-                            <select
-                                className="bg-white border border-[#EDEEF4] px-4 py-2 rounded-[6px] text-sm text-gray-700 cursor-pointer outline-none "
-                                value={activityDate}
-                                onChange={(e) => setactivityDate(e.target.value)}
-                            >
-
-                                <option value="Lead Activity Date">Lead Activity Date</option>
-                                <option value="">Custom Range</option>
-                                <option>Today</option>
-                                <option>Yesterday</option>
-                                <option>Last 7 Days</option>
-                                <option >Last 14 Days</option>
-                                <option >Last 30 Days</option>
-                                <option >This Month</option>
-                                <option>Last Range</option>
-                            </select>
-
-                            {/* Today Badge */}
-                            {/* <div className="bg-[#E8EAF5] text-gray-700 px-3 py-2 rounded-md text-sm border border-gray-300">
-                                Today
-                            </div> */}
-
-                            {/* X icon */}
-                            <button onClick={() => setactivityDate("Lead Activity Date")} className="text-gray-700 text-[16px] font-light">
-                                ✕
-                            </button>
-
-                            {/* Clear Red Button */}
-                            <button className="flex items-center gap-1 bg-[#FDD7D8] border-2 border-[#FFA4AD] text-[#FF1216] text-[16px] px-3 py-1 rounded-md">
-                                <span className="text-[16px]"><CiEraser />
-                                </span> Clear
-                            </button>
-                        </div>
-
-                        {/* ---------------- RIGHT SECTION ---------------- */}
-                        <div className="flex items-center gap-6">
-
-                            {/* Search Input */}
-                            <div className="relative">
-                                <FiSearch className="absolute left-2 top-1.5 text-[#898484]" size={15} />
-
-                                <input
-                                    type="text"
-                                    placeholder="Search here"
-                                    className="border-b border-[#4C4646] pl-7 pb-1 text-sm w-44 outline-none placeholder-[#898484] inter "
-                                />
-                            </div>
-
-                            {/* Total */}
-                            <p className="text-[#706D6D] text-[16px] flex items-center gap-1 inter font-medium">
-                                Total:
-                                <span className="border border-[#858585] px-2 rounded-[4px] text-[15px]">2</span>
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* ---------- Table ---------- */}
-                    <div className=" overflow-hidden">
-                        <table className="w-full text-sm">
-                            <thead>
-                                <tr className="bg-[#E4F3FF] border-b border-[#EDEEF4] inter font-semibold">
-                                    <th className="p-3 w-10 ">
-                                        <input type="checkbox" />
-                                    </th>
-                                    <th className="p-3 text-left border-r border-[#363636]">Lead Name</th>
-                                    <th className="p-3 text-left border-r border-[#363636]">Company</th>
-                                    <th className="p-3 text-left border-r border-[#363636]">Phone</th>
-                                    <th className="p-3 text-left border-r border-[#363636]">Email</th>
-                                    <th className="p-3 text-left border-r border-[#363636]">Country</th>
-                                    <th className="p-3 text-left border-r border-[#363636]">Status</th>
-                                    <th className="p-3 text-left border-r border-[#363636]">Action</th>
-                                </tr>
-                            </thead>
-
-
-                            <tbody>
-                                {[
-                                    {
-                                        name: "Carissa Kidman",
-                                        company: "Oh my Goodknits",
-                                        phone: "555-555-5555",
-                                        email: "carisssa@noemail.com",
-                                        country: "India",
-                                        status: "Processing"
-                                    },
-                                    {
-                                        name: "Crissa Kidman",
-                                        company: "Oh my Goodknits",
-                                        phone: "555-555-5555",
-                                        email: "carisssa@noemail.com",
-                                        country: "India",
-                                        status: "Pending"
-                                    },
-                                ].map((item, i) => (
-                                    <tr
-                                        key={i}
-                                        className="border-b border-[#EDEEF4] transition intertext-[16px] hover:bg-[#EDEEF4]"
-                                    >
-                                        <td className="p-3 w-10">
-                                            <input type="checkbox" />
-                                        </td>
-                                        <td className="p-3">{item.name}</td>
-                                        <td className="p-3">{item.company}</td>
-                                        <td className="p-3">{item.phone}</td>
-                                        <td className="p-3 break-all">{item.email}</td>
-                                        <td className="p-3">{item.country}</td>
-                                        <td className="py-4 px-3 border-b-2 border-[#EDEEF4]">
-                                            <span
-                                                className={`px-3 py-1 rounded-[6px] text-[16px] font-semibold nunito ${statusClasses[item.status]}`}
-                                            >
-                                                {item.status}
-                                            </span>
-                                        </td>
-                                        <td className="p-3 flex items-center gap-3">
-                                            {/* Edit Icon */}
-                                            <AiFillEdit
-                                                className="text-blue-600 cursor-pointer hover:scale-110 transition"
-                                                size={20}
-                                            />
-
-                                            {/* Delete Icon */}
-                                            <AiFillDelete
-                                                className="text-red-600 cursor-pointer hover:scale-110 transition"
-                                                size={20}
-                                            />
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
+              {/* Create Menu */}
+              {showCreateMenu && (
+                <div className="absolute top-12 left-0 bg-white shadow rounded w-40 z-30">
+                  <p
+                    onClick={() => navigate("/create-lead")}
+                    className="py-2 px-4 hover:bg-[#EDEEF4] cursor-pointer"
+                  >
+                    Quick add lead
+                  </p>
+                  <p
+                    onClick={() => navigate("/create-lead")}
+                    className="py-2 px-4 hover:bg-[#EDEEF4] cursor-pointer"
+                  >
+                    Add new lead
+                  </p>
                 </div>
+              )}
 
+              {/* Dots Menu */}
+              {showDotsMenu && (
+                <div className="absolute top-12 right-0 bg-white shadow rounded w-44 z-30">
+                  <p className="flex items-center gap-2 py-2 px-4 hover:bg-[#EDEEF4] cursor-pointer">
+                    <LuFileInput /> Import Leads
+                  </p>
+                  <p className="flex items-center gap-2 py-2 px-4 hover:bg-[#EDEEF4] cursor-pointer">
+                    <TbFileExport /> Export Leads
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
 
+          {/* ================= FILTER CONTROLS ================= */}
+          <div className="flex flex-col lg:flex-row justify-between gap-4 py-4">
 
-            </section>
-        </>
-    );
+            {/* Left */}
+            <div className="flex flex-wrap items-center gap-3">
+              <select
+                className="border px-4 py-2 rounded-md text-sm"
+                value={activityDate}
+                onChange={(e) => setactivityDate(e.target.value)}
+              >
+                <option>Lead Activity Date</option>
+                <option>Today</option>
+                <option>Yesterday</option>
+                <option>Last 7 Days</option>
+              </select>
+
+              <button onClick={() => setactivityDate("")}>✕</button>
+
+              <button className="flex items-center gap-1 bg-[#FDD7D8] border border-[#FFA4AD] text-[#FF1216] px-3 py-1 rounded-md">
+                <CiEraser /> Clear
+              </button>
+            </div>
+
+            {/* Right */}
+            <div className="flex items-center gap-4">
+              <div className="relative">
+                <FiSearch className="absolute left-2 top-2 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Search here"
+                  className="border-b pl-7 pb-1 text-sm outline-none w-40"
+                />
+              </div>
+
+              <p className="text-sm">
+                Total:
+                <span className="ml-1 border px-2 rounded">2</span>
+              </p>
+            </div>
+          </div>
+
+          {/* ================= TABLE ================= */}
+          <div className="overflow-x-auto">
+            <table className="min-w-[900px] w-full text-sm">
+              <thead>
+                <tr className="bg-[#E4F3FF]">
+                  <th className="p-3"><input type="checkbox" /></th>
+                  <th className="p-3 text-left">Lead Name</th>
+                  <th className="p-3 text-left">Company</th>
+                  <th className="p-3 text-left">Phone</th>
+                  <th className="p-3 text-left">Email</th>
+                  <th className="p-3 text-left">Country</th>
+                  <th className="p-3 text-left">Status</th>
+                  <th className="p-3 text-left">Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {[
+                  { name: "Carissa Kidman", company: "Oh my Goodknits", phone: "555-555-5555", email: "carissa@noemail.com", country: "India", status: "Processing" },
+                  { name: "Crissa Kidman", company: "Oh my Goodknits", phone: "555-555-5555", email: "carissa@noemail.com", country: "India", status: "Pending" },
+                ].map((item, i) => (
+                  <tr key={i} className="border-b border-[#EDEEF4] hover:bg-[#EDEEF4]">
+                    <td className="p-3"><input type="checkbox" /></td>
+                    <td className="p-3">{item.name}</td>
+                    <td className="p-3">{item.company}</td>
+                    <td className="p-3">{item.phone}</td>
+                    <td className="p-3 break-all">{item.email}</td>
+                    <td className="p-3">{item.country}</td>
+                    <td className="p-3">
+                      <span className={`px-3 py-1 rounded ${statusClasses[item.status]}`}>
+                        {item.status}
+                      </span>
+                    </td>
+                    <td className="p-3 flex gap-3">
+                      <AiFillEdit className="text-blue-600 cursor-pointer" />
+                      <AiFillDelete className="text-red-600 cursor-pointer" />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </section>
+    </>
+  );
 };
 
 export default ViewNeawLead;

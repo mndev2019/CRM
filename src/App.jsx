@@ -61,6 +61,10 @@ import CreateRichTextEditorEmail from './Pages/ContentLibrary/EmailLibrary/Creat
 import Recepeints from './Pages/Marketing/Recepeints/index.jsx'
 import Schedule from './Pages/Marketing/Schedule/index.jsx'
 import Dashboard from './Pages/Dashboard/Dashboard.jsx'
+import MarketPlace from './Pages/MarketPlace/index.jsx'
+import ZoomMeeting from './Pages/MarketPlace/ZoomMeeting.jsx'
+import WordPress from './Pages/MarketPlace/WordPress.jsx'
+import GoogleAnalytics from './Pages/MarketPlace/GoogleAnalytics.jsx'
 
 
 
@@ -77,9 +81,9 @@ function App() {
 
         <Route path='/' element={<Layout />}>
 
-          <Route path='/dashboard' element={<Dashboard/>}/>
+          <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/profile' element={<Profile />} />
-          <Route path='/create-profile' element={<CreateProfile/>}/>
+          <Route path='/create-profile' element={<CreateProfile />} />
           <Route path='/password' element={<Password />} />
           <Route path='/email-signature' element={<EmailSingnature />} />
           <Route path='/my-report' element={<ReportSubscription />} />
@@ -113,30 +117,37 @@ function App() {
           <Route path='/usage-report' element={<UsageReport />} />
           <Route path='/call-prefrence' element={<CallPrefrence />} />
           {/* marketing */}
-          <Route path='/email-campaign' element={<EmailCampaign/>}/>
-          <Route path='/create-email-campaign' element={<CreateEmailCampaign/>}/>
-          <Route path='/show-emailcampaign' element={<ShowEmailCampaign/>}/>
-          <Route path='/compose-emailcampaign' element={<Compose/>}/>
-          <Route path='/rich-texteditor' element={<RichTextEditor/>}/>
-          <Route path='/plain-texteditor' element={<PlainTextEditor/>}/>
+          <Route path='/email-campaign' element={<EmailCampaign />} />
+          <Route path='/create-email-campaign' element={<CreateEmailCampaign />} />
+          <Route path='/show-emailcampaign' element={<ShowEmailCampaign />} />
+          <Route path='/compose-emailcampaign' element={<Compose />} />
+          <Route path='/rich-texteditor' element={<RichTextEditor />} />
+          <Route path='/plain-texteditor' element={<PlainTextEditor />} />
           <Route path='/website-widgets' element={<Websitewidget />} />
           <Route path='/show-widget' element={<ShowWidget />} />
-          <Route path='/edit-websitewidget' element={<EditWebsiteWidget/>}/>
+          <Route path='/edit-websitewidget' element={<EditWebsiteWidget />} />
           <Route path='/create-widget' element={<CreateWidget />} />
-          <Route path='/recepeints' element={<Recepeints/>}/>
-          <Route path='/schedule' element={<Schedule/>}/>
+          <Route path='/recepeints' element={<Recepeints />} />
+          <Route path='/schedule' element={<Schedule />} />
 
           {/* workflow */}
           <Route path='/show-automation' element={<ShowAutomation />} />
 
           {/* content library */}
           <Route path='/email-library' element={<ShowEmailLibrary />} />
-          <Route path='/visual-email-template' element={<CreateVisualEmailTemplate/>}/>
-          <Route path='/richtext-email-template' element={<CreateRichTextEditorEmail/>}/>
+          <Route path='/visual-email-template' element={<CreateVisualEmailTemplate />} />
+          <Route path='/richtext-email-template' element={<CreateRichTextEditorEmail />} />
           <Route path='/images-document' element={<ImagesDocument />} />
 
           {/* calender */}
-          <Route path='/Calendar' element={<Calender/>}/>
+          <Route path='/Calendar' element={<Calender />} />
+
+          {/* marketplace */}
+          <Route path='/market-place' element={<MarketPlace />} />
+          <Route path='/zoom' element={<ZoomMeeting/>}/>
+          <Route path='/wordpress' element={<WordPress/>}/>
+          <Route path='/google-analytics' element={<GoogleAnalytics/>}/>
+
         </Route>
 
 
