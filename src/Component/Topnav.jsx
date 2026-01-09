@@ -4,16 +4,16 @@ const Topnav = ({ title, subtitle, icon }) => {
   return (
     <nav className="
       w-full bg-white border-b py-2 shadow border-[#CBD5E1]
-      rounded-tl-xl rounded-tr-xl
+      md:rounded-tl-xl md:rounded-tr-xl
     ">
       <div className="container mx-auto">
         <div className="
-          flex flex-col sm:flex-row
-          justify-between items-start sm:items-center
+          flex flex-row
+          justify-between items-center
         ">
 
           {/* Left Content */}
-          <div className="px-4 sm:px-5 mb-2 sm:mb-0">
+          <div className="px-2 sm:px-5">
             <p className="inter font-extrabold text-[18px] sm:text-[20px] text-black">
               {title}
             </p>
@@ -23,11 +23,11 @@ const Topnav = ({ title, subtitle, icon }) => {
           </div>
 
           {/* Right Icon */}
-          <div className="px-4 sm:px-5">
+          <div className="px-2 sm:px-5">
             <img
               src={icon}
               alt=""
-              className="w-[40px] h-[40px] sm:w-[50px] sm:h-[50px]"
+              className="w-[50px] h-[50px]"
             />
           </div>
 

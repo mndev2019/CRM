@@ -50,7 +50,7 @@ const apps = [
     },
     {
         name: 'Telegram',
-        desc: 'Manage your Telegram communities, groups and channels easily from Exly',
+        desc: 'Manage your Telegram communities, groups and channels easily from Ramot',
         icon: telegram,
         action: 'Connect Zapier',
         type: 'connect',

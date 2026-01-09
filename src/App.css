@@ -3,32 +3,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 .nunito {
-    font-family: "Nunito", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .inter {
-    font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .roboto {
-    font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-    background-color: #EDEEF4;
+  background-color: #EDEEF4;
 }
 
-.react-calendar{
-    border: none !important;
-    border-radius: 0 !important;
+.react-calendar {
+  border: none !important;
+  border-radius: 0 !important;
 }
-.react-calendar__tile--active:enabled:hover, .react-calendar__tile--active {
-    border-radius: 50% !important;
-    background-color: black !important;
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active {
+  border-radius: 50% !important;
+  background-color: black !important;
 }
-.react-calendar__tile--now:enabled:hover, .react-calendar__tile--now{
-     border-radius: 50% !important;
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now {
+  border-radius: 50% !important;
 }
+
+.fc .fc-button {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
 /* chatbotcss */
 .react-chatbot-kit-chat-container {
   border-radius: 0;
@@ -42,8 +52,8 @@ body {
 /* .react-chatbot-kit-chat-input {
   border-radius: 9999px;
 } */
-.react-chatbot-kit-chat-bot-message{
-    margin-left:10px !important;
+.react-chatbot-kit-chat-bot-message {
+  margin-left: 10px !important;
 }
 
 

@@ -7,7 +7,7 @@ import { FaRegPlusSquare } from "react-icons/fa";
 import { GoPlus } from "react-icons/go";
 import { CiEraser } from "react-icons/ci";
 import { TbFileExport } from "react-icons/tb";
-import tablet from "../../../assets/Images/tablet.png";
+// import tablet from "../../../assets/Images/tablet.png";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
@@ -22,6 +22,24 @@ const LeadDetail = () => {
         Failed: "bg-[#FDD7D7] text-[#FF1212]",
         Pending: "bg-[#FDD7D7] text-[#FF1212]",
     };
+    const leads = [
+        {
+            name: "Carissa Kidman",
+            company: "Oh my Goodknits",
+            phone: "555-555-5555",
+            email: "carisssa@noemail.com",
+            country: "India",
+            status: "Processing",
+        },
+        {
+            name: "Crissa Kidman",
+            company: "Oh my Goodknits",
+            phone: "555-555-5555",
+            email: "carisssa@noemail.com",
+            country: "India",
+            status: "Pending",
+        },
+    ]
 
     return (
         <>
@@ -102,9 +120,9 @@ const LeadDetail = () => {
                                 ✕
                             </button>
 
-                            <button className="flex items-center gap-1 bg-[#FDD7D8] border-2 border-[#FFA4AD] text-[#FF1216] text-[16px] px-3 py-1 rounded-md">
+                            {/* <button className="flex items-center gap-1 bg-[#FDD7D8] border-2 border-[#FFA4AD] text-[#FF1216] text-[16px] px-3 py-1 rounded-md">
                                 <CiEraser /> Clear
-                            </button>
+                            </button> */}
                         </div>
 
                         {/* RIGHT */}
@@ -128,14 +146,14 @@ const LeadDetail = () => {
                                 </span>
                             </p>
 
-                            <div className="rounded-full p-1 border border-black">
+                            {/* <div className="rounded-full p-1 border border-black">
                                 <img src={tablet} alt="view" />
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 
                     {/* ---------- Table ---------- */}
-                    <div className="overflow-x-auto">
+                    <div className="hidden md:block overflow-x-auto">
                         <table className="min-w-[1000px] w-full text-sm">
                             <thead>
                                 <tr className="bg-[#F9EBFF] border-b border-[#EDEEF4] inter font-semibold">
@@ -153,24 +171,7 @@ const LeadDetail = () => {
                             </thead>
 
                             <tbody>
-                                {[
-                                    {
-                                        name: "Carissa Kidman",
-                                        company: "Oh my Goodknits",
-                                        phone: "555-555-5555",
-                                        email: "carisssa@noemail.com",
-                                        country: "India",
-                                        status: "Processing",
-                                    },
-                                    {
-                                        name: "Crissa Kidman",
-                                        company: "Oh my Goodknits",
-                                        phone: "555-555-5555",
-                                        email: "carisssa@noemail.com",
-                                        country: "India",
-                                        status: "Pending",
-                                    },
-                                ].map((item, i) => (
+                                {leads.map((item, i) => (
                                     <tr
                                         key={i}
                                         className="border-b border-[#EDEEF4] hover:bg-[#EDEEF4]"
@@ -198,6 +199,31 @@ const LeadDetail = () => {
                                 ))}
                             </tbody>
                         </table>
+                    </div>
+                    {/* ================= MOBILE CARD VIEW ================= */}
+                    <div className="md:hidden space-y-4">
+                        {leads.map((item, i) => (
+                            <div key={i} className="border border-[#EDEEF4] rounded-xl p-4 shadow-sm">
+                                <div className="flex justify-between items-center mb-2">
+                                    <h3 className="font-semibold text-[16px]">{item.name}</h3>
+                                    <span className={`text-xs px-3 py-1 rounded-full ${statusClasses[item.status]}`}>
+                                        {item.status}
+                                    </span>
+                                </div>
+
+                                <div className="text-sm text-gray-600 space-y-1">
+                                    <p><b>Company:</b> {item.company}</p>
+                                    <p><b>Phone:</b> {item.phone}</p>
+                                    <p className="break-all"><b>Email:</b> {item.email}</p>
+                                    <p><b>Country:</b> {item.country}</p>
+                                </div>
+
+                                <div className="flex justify-end gap-4 mt-3">
+                                    <AiFillEdit className="text-blue-600 text-xl cursor-pointer" />
+                                    <AiFillDelete className="text-red-600 text-xl cursor-pointer" />
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>

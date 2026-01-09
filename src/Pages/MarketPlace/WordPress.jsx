@@ -27,7 +27,10 @@ const WordPress = () => {
           </div>
 
           {/* Header */}
-          <div className="bg-[linear-gradient(90deg,rgba(235,247,255,0.35)_0%,#FDF4FF_100%)] rounded-[12px] p-4 flex items-center justify-between mb-6">
+          {/* Header */}
+          <div className="bg-[linear-gradient(90deg,rgba(235,247,255,0.35)_0%,#FDF4FF_100%)] rounded-[12px] p-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+
+            {/* Left */}
             <div className="flex items-center gap-3">
               <img
                 src={wordpress}
@@ -39,27 +42,30 @@ const WordPress = () => {
               </h2>
             </div>
 
-            <div className="flex items-center gap-3">
+            {/* Right */}
+            <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
               <input
                 type="text"
                 placeholder="Website URL"
-                className="border border-[#6A0065] px-3 py-1 text-[13px] text-[#111827] bg-white"
+                className="border border-[#6A0065] px-3 py-2 text-[13px] text-[#111827] bg-white w-full sm:w-[180px]"
               />
 
               <input
                 type="text"
                 placeholder="API Key"
-                className="border border-[#6A0065] px-3 py-1 text-[13px] text-[#111827] bg-white"
+                className="border border-[#6A0065] px-3 py-2 text-[13px] text-[#111827] bg-white w-full sm:w-[160px]"
               />
 
               <button
                 className="bg-[linear-gradient(90deg,#870081_0%,#F205E8_100%)]
-                text-white text-[13px] font-semibold px-4 py-1.5 rounded-[4px] border border-[#6A0065]"
+      text-white text-[13px] font-semibold px-4 py-2 rounded-[4px] border border-[#6A0065]
+      w-full sm:w-auto"
               >
                 Save
               </button>
             </div>
           </div>
+
 
           {/* Content */}
           <div className="space-y-6 text-[14px]">

@@ -9,7 +9,7 @@ import { GoPlus } from "react-icons/go";
 import { TbFileExport } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
-import task from '../../../assets/Images/task.png'
+import taskimg from '../../../assets/Images/task.png'
 
 const Task = () => {
     const navigate = useNavigate();
@@ -21,17 +21,26 @@ const Task = () => {
         Failed: "bg-[#FDD7D7] text-[#FF1212]",
         Pending: "bg-[#FFF7CC] text-[#C49A00]",
     };
+    const task = [{
+        Subject: "kamal kishore",
+        AssociatedTo: "Kamal Kishore",
+        Status: "Completed",
+        TaskId: "T10001",
+        DueDate: "12/10/25 05:30 AM",
+        CreatedBy: "Admin",
+        TaskOwner: "Admin"
+    }]
 
     return (
         <>
             <Topnav
                 title="Tasks"
                 subtitle="View and manage all tasks in your system."
-                icon={task}
+                icon={taskimg}
             />
 
             <section className="p-3 sm:p-6 bg-white rounded-bl-2xl rounded-br-2xl">
-                <div className="rounded-[12px] border border-[#EDEEF4] p-3">
+                <div className="rounded-[12px] md:border border-[#EDEEF4] p-3">
                     {/* ---------- Filter Row ---------- */}
                     <div className="flex flex-wrap justify-between py-2 border-b-2 border-[#EDEEF4] gap-3">
                         <div className="flex flex-wrap gap-3 items-center relative">
@@ -89,7 +98,7 @@ const Task = () => {
                     </div>
 
                     {/* ---------- Table ---------- */}
-                    <div className="overflow-x-auto">
+                    <div className="hidden md:block overflow-x-auto">
                         <table className="w-full text-sm min-w-[800px] sm:min-w-full">
                             <thead>
                                 <tr className="bg-[#F9EBFF] border-b border-[#EDEEF4] inter font-semibold whitespace-nowrap">
@@ -108,15 +117,7 @@ const Task = () => {
                             </thead>
 
                             <tbody>
-                                {[{
-                                    Subject: "kamal kishore",
-                                    AssociatedTo: "Kamal Kishore",
-                                    Status: "Completed",
-                                    TaskId: "T10001",
-                                    DueDate: "12/10/25 05:30 AM",
-                                    CreatedBy: "Admin",
-                                    TaskOwner: "Admin"
-                                }].map((item, i) => (
+                                {task.map((item, i) => (
                                     <tr key={i} className="border-b border-[#EDEEF4] transition intertext-[16px] hover:bg-[#EDEEF4]">
                                         <td className="p-3 w-10">
                                             <input type="checkbox" />
@@ -142,6 +143,32 @@ const Task = () => {
                                 ))}
                             </tbody>
                         </table>
+                    </div>
+                    {/* ================= MOBILE CARD VIEW ================= */}
+                    <div className="md:hidden space-y-4">
+                        {task.map((item, i) => (
+                            <div key={i} className="border border-[#EDEEF4] rounded-xl p-4 shadow-sm">
+                                <div className="flex justify-between items-center mb-2">
+                                    <h3 className="font-semibold text-[16px]">{item.Subject}</h3>
+                                    <span className={`text-xs px-3 py-1 rounded-full ${statusClasses[item.Status]}`}>
+                                        {item.Status}
+                                    </span>
+                                </div>
+
+                                <div className="text-sm text-gray-600 space-y-1">
+                                    <p><b>Associated To:</b> {item.AssociatedTo}</p>
+                                    <p><b>TaskId:</b> {item.TaskId}</p>
+                                    <p className="break-all"><b>DueDate:</b> {item.DueDate}</p>
+                                    <p><b>CreatedBy:</b> {item.CreatedBy}</p>
+                                    <p><b>TaskOwner:</b> {item.TaskOwner}</p>
+                                </div>
+
+                                <div className="flex justify-end gap-4 mt-3">
+                                    <AiFillEdit className="text-blue-600 text-xl cursor-pointer" />
+                                    <AiFillDelete className="text-red-600 text-xl cursor-pointer" />
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>

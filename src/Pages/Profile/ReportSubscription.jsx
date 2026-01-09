@@ -11,10 +11,10 @@ const ReportSubscription = () => {
                 icon={report}
             />
 
-            <section className="px-10 py-8 bg-white rounded-bl-2xl rounded-br-2xl space-y-6">
+            <section className="lg:px-10 md:px-5 px-2 lg:py-8 py-2 bg-white rounded-bl-2xl rounded-br-2xl space-y-6">
                 <div className="grid grid-cols-1">
                     <div className="col-span-1">
-                        <div className="w-full border border-[#EDEEF4] rounded-[6px] py-5 px-10 space-y-5">
+                        <div className="w-full md:border border-[#EDEEF4] rounded-[6px] py-5 lg:px-10 px-5 space-y-5">
                             <div className="flex items-start gap-3 border-b border-[#EDEEF4] pb-4">
                                 <input type="checkbox" className="mt-1 w-4 h-4 accent-blue-600" defaultChecked />
                                 <div>

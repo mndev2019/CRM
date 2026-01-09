@@ -20,6 +20,15 @@ const DocumentGenration = () => {
     Failure: "bg-[#FDD7D7] text-[#FF1212]",
     "Not Set": "bg-[#E0E0E0] text-[#666666]",
   };
+  const documentgenerationdata = [
+    {
+      AssociatedTo: "Kamal Kishore",
+      Status: "Success",
+      ActivityDate: "12/10/25 05:30 AM",
+      ActivityModifiedOn: "Today",
+      Owner: "Admin",
+    },
+  ]
 
   return (
     <>
@@ -30,10 +39,10 @@ const DocumentGenration = () => {
       />
 
       <section className="p-4 md:p-6 bg-white rounded-bl-2xl rounded-br-2xl">
-        <div className="rounded-[12px] border border-[#EDEEF4] p-3">
+        <div className="rounded-[12px] md:border border-[#EDEEF4] p-3">
 
           {/* ---------- Filter Row ---------- */}
-          <div className="flex flex-col lg:flex-row lg:justify-between gap-4 py-2 border-b-2 border-[#EDEEF4]">
+          <div className="flex flex-col lg:flex-row lg:justify-between md:gap-4 py-2 border-b-2 border-[#EDEEF4]">
 
             <div className="flex gap-3 items-center">
               {/* <div className="flex gap-1 items-center">
@@ -96,7 +105,7 @@ const DocumentGenration = () => {
           </div>
 
           {/* ---------- Table ---------- */}
-          <div className="overflow-x-auto">
+          <div className="hidden md:block overflow-x-auto">
             <table className="min-w-[900px] w-full text-sm">
               <thead>
                 <tr className="bg-[#F9EBFF] border-b border-[#EDEEF4] inter font-semibold">
@@ -125,15 +134,7 @@ const DocumentGenration = () => {
               </thead>
 
               <tbody>
-                {[
-                  {
-                    AssociatedTo: "Kamal Kishore",
-                    Status: "Success",
-                    ActivityDate: "12/10/25 05:30 AM",
-                    ActivityModifiedOn: "Today",
-                    Owner: "Admin",
-                  },
-                ].map((item, i) => (
+                {documentgenerationdata.map((item, i) => (
                   <tr
                     key={i}
                     className="border-b border-[#EDEEF4] inter text-[16px] hover:bg-[#EDEEF4]"
@@ -160,6 +161,30 @@ const DocumentGenration = () => {
                 ))}
               </tbody>
             </table>
+          </div>
+          <div className="md:hidden space-y-4">
+            {documentgenerationdata.map((item, i) => (
+              <div key={i} className="border border-[#EDEEF4] rounded-xl p-4 shadow-sm">
+                <div className="flex justify-between items-center mb-2">
+                  <h3 className="font-semibold text-[16px]">{item.AssociatedTo}</h3>
+                  <span className={`text-xs px-3 py-1 rounded-full ${statusClasses[item.Status]}`}>
+                    {item.Status}
+                  </span>
+                </div>
+
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p><b>Activity Date:</b> {item.ActivityDate}</p>
+
+                  <p className="break-all"><b>ModifiedOn:</b> {item.ActivityModifiedOn}</p>
+                  <p><b>Owner:</b> {item.Owner}</p>
+                </div>
+
+                <div className="flex justify-end gap-4 mt-3">
+                  <AiFillEdit className="text-blue-600 text-xl cursor-pointer" />
+                  <AiFillDelete className="text-red-600 text-xl cursor-pointer" />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

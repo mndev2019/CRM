@@ -16,6 +16,16 @@ const ShowSalesActivity = () => {
     Lost: "bg-[#FDD7D7] text-[#FF1212]",
   };
 
+  const salesactivitydata = [
+    {
+      AssociatedTo: "Kamal Kishore",
+      product: "01-Sample Product",
+      ordervalue: "3",
+      SalesDate: "12/10/25 05:30 AM",
+      SalesOwner: "System",
+      Status: "Open",
+    },
+  ]
   return (
     <>
       <Topnav
@@ -25,10 +35,10 @@ const ShowSalesActivity = () => {
       />
 
       <section className="p-4 md:p-6 bg-white rounded-bl-2xl rounded-br-2xl">
-        <div className="rounded-[12px] border border-[#EDEEF4] p-3">
+        <div className="rounded-[12px] md:border border-[#EDEEF4] p-3">
           {/* ---------- Filter Row ---------- */}
-          <div className="flex flex-col md:flex-row md:justify-between gap-4 py-2 border-b-2 border-[#EDEEF4]">
-            
+          <div className="flex flex-col md:flex-row md:justify-between md:gap-4 py-2 border-b-2 border-[#EDEEF4]">
+
             {/* Left */}
             <div className="flex flex-wrap gap-3 items-center">
               {/* <div className="flex gap-1 items-center">
@@ -76,7 +86,7 @@ const ShowSalesActivity = () => {
           </div>
 
           {/* ---------- Table ---------- */}
-          <div className="overflow-x-auto">
+          <div className="hidden md:block overflow-x-auto">
             <table className="min-w-[900px] w-full text-sm">
               <thead>
                 <tr className="bg-[#F9EBFF] border-b border-[#EDEEF4] inter font-semibold">
@@ -108,16 +118,7 @@ const ShowSalesActivity = () => {
               </thead>
 
               <tbody>
-                {[
-                  {
-                    AssociatedTo: "Kamal Kishore",
-                    product: "01-Sample Product",
-                    ordervalue: "3",
-                    SalesDate: "12/10/25 05:30 AM",
-                    SalesOwner: "System",
-                    Status: "Open",
-                  },
-                ].map((item, i) => (
+                {salesactivitydata.map((item, i) => (
                   <tr
                     key={i}
                     className="border-b border-[#EDEEF4] inter text-[16px] hover:bg-[#EDEEF4]"
@@ -151,6 +152,31 @@ const ShowSalesActivity = () => {
                 ))}
               </tbody>
             </table>
+          </div>
+          <div className="md:hidden space-y-4">
+            {salesactivitydata.map((item, i) => (
+              <div key={i} className="border border-[#EDEEF4] rounded-xl p-4 shadow-sm">
+                <div className="flex justify-between items-center mb-2">
+                  <h3 className="font-semibold text-[16px]">{item.AssociatedTo}</h3>
+                  <span className={`text-xs px-3 py-1 rounded-full ${statusClasses[item.Status]}`}>
+                    {item.Status}
+                  </span>
+                </div>
+
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p><b>Product:</b> {item.product}</p>
+
+                  <p className="break-all"><b>Order Value:</b> {item.ordervalue}</p>
+                  <p><b>SalesDate:</b> {item.SalesDate}</p>
+                  <p><b>SalesOwner:</b> {item.SalesOwner}</p>
+                </div>
+
+                <div className="flex justify-end gap-4 mt-3">
+                  <AiFillEdit className="text-blue-600 text-xl cursor-pointer" />
+                  <AiFillDelete className="text-red-600 text-xl cursor-pointer" />
+                </div>
+              </div>
+            ))}
           </div>
 
         </div>

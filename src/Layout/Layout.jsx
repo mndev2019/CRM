@@ -93,7 +93,7 @@ const Layout = () => {
                 </div>
 
                 {/* 🔹 PAGE CONTENT */}
-                <main className="p-4 lg:p-5">
+                <main className="md:p-3 p-1 lg:p-5">
                     <Outlet />
                 </main>
 

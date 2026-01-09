@@ -1,5 +1,6 @@
 import React from "react";
 import Topnav from "../../../Component/Topnav";
+import salesactivity from "../../../assets/Images/salesactivity.png";
 
 const CreateSalesActivity = () => {
   return (
@@ -7,6 +8,7 @@ const CreateSalesActivity = () => {
       <Topnav
         title="Sales Activity"
         subtitle="Track, manage, and monitor all sales interactions for better performance and follow-ups."
+        icon={salesactivity}
       />
 
       <section className="p-4 md:p-6 bg-white rounded-bl-2xl rounded-br-2xl">

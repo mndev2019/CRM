@@ -25,7 +25,7 @@ const CreatedByDropdown = ({ value, onChange }) => {
   );
 
   return (
-    <div className="relative w-[170px] sm:w-full">
+    <div className="relative w-[170px] ">
       {/* SELECT BOX */}
       <div
         onClick={() => setOpen(!open)}
@@ -204,7 +204,7 @@ const ViewList = () => {
 
           {/* SECOND ROW */}
           <div className="flex flex-wrap justify-between py-3 gap-3">
-            <div className="flex flex-wrap gap-3 items-center w-full sm:w-auto">
+            <div className="flex  gap-3 items-center w-full sm:w-auto">
 
               {/* LIST TYPE FILTER */}
               <select
@@ -258,7 +258,7 @@ const ViewList = () => {
           </div>
 
           {/* TABLE */}
-          <div className="overflow-x-auto mt-2">
+          <div className="hidden md:block overflow-x-auto mt-2">
             <table className="w-full text-sm min-w-[800px]">
               <thead>
                 <tr className="bg-[#F9EBFF] border-b border-[#EDEEF4] inter font-semibold">
@@ -292,6 +292,27 @@ const ViewList = () => {
               </tbody>
             </table>
           </div>
+          {/* ================= MOBILE CARD VIEW ================= */}
+          <div className="md:hidden space-y-4">
+            {filteredData.map((item, i) => (
+              <div key={i} className="border border-[#EDEEF4] rounded-xl p-4 shadow-sm">
+
+
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p><b>List Name:</b> {item.listName}</p>
+                  <p><b>Member Count:</b> {item.memberCount}</p>
+                  <p className="break-all"><b>List Type:</b> {item.listType}</p>
+                  <p><b>ModifiedBy:</b> {item.modifiedBy}</p>
+                  <p><b>ModifiedOn:</b> {item.modifiedOn}</p>
+                  <p><b>CreatedBy:</b> {item.createdBy}</p>
+                  <p><b>CreatedOn:</b> {item.createdOn}</p>
+                </div>
+
+
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 

@@ -24,6 +24,15 @@ const ShowActivity = () => {
     "Not Set": "bg-[#E0E0E0] text-[#666666]",
   };
 
+  const activitydata = [{
+    AssociatedTo: "Kamal Kishore",
+    Status: "Answered",
+    StartTime: "Today",
+    ActivityDate: "12/10/25 05:30 AM",
+    CreatedBy: "Admin",
+    TaskOwner: "Admin"
+  }]
+
   return (
     <>
       <Topnav
@@ -33,7 +42,7 @@ const ShowActivity = () => {
       />
 
       <section className="p-3 sm:p-6 bg-white rounded-bl-2xl rounded-br-2xl">
-        <div className="rounded-[12px] border border-[#EDEEF4] p-3">
+        <div className="rounded-[12px] md:border border-[#EDEEF4] p-3">
 
           {/* ---------- FILTER ROW ---------- */}
           <div className="flex flex-wrap justify-between py-2 border-b-2 border-[#EDEEF4] gap-3">
@@ -100,7 +109,7 @@ const ShowActivity = () => {
                   </p>
                   <div className="h-[1px] bg-[#363636]" />
                   <p className="nunito flex items-center gap-2 font-semibold text-[14px] hover:bg-[#EDEEF4] py-2 px-4 cursor-pointer">
-                     <TbFileExport size={22} /> Export  Call Activity
+                    <TbFileExport size={22} /> Export  Call Activity
                     {/* <TbFileExport size={22} /> Export {selectedCallType} Call Activity */}
                   </p>
                 </div>
@@ -121,7 +130,7 @@ const ShowActivity = () => {
           </div>
 
           {/* ---------- TABLE ---------- */}
-          <div className="overflow-x-auto">
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full min-w-[900px] text-sm">
               <thead>
                 <tr className="bg-[#F9EBFF] border-b border-[#EDEEF4] inter font-semibold">
@@ -137,14 +146,7 @@ const ShowActivity = () => {
               </thead>
 
               <tbody>
-                {[{
-                  AssociatedTo: "Kamal Kishore",
-                  Status: "Answered",
-                  StartTime: "Today",
-                  ActivityDate: "12/10/25 05:30 AM",
-                  CreatedBy: "Admin",
-                  TaskOwner: "Admin"
-                }].map((item, i) => (
+                {activitydata.map((item, i) => (
                   <tr key={i} className="border-b border-[#EDEEF4] hover:bg-[#EDEEF4]">
                     <td className="p-3"><input type="checkbox" /></td>
                     <td className="p-3">{item.AssociatedTo}</td>
@@ -166,7 +168,32 @@ const ShowActivity = () => {
               </tbody>
             </table>
           </div>
+          {/* ================= MOBILE CARD VIEW ================= */}
+          <div className="md:hidden space-y-4">
+            {activitydata.map((item, i) => (
+              <div key={i} className="border border-[#EDEEF4] rounded-xl p-4 shadow-sm">
+                <div className="flex justify-between items-center mb-2">
+                  <h3 className="font-semibold text-[16px]">{item.AssociatedTo}</h3>
+                  <span className={`text-xs px-3 py-1 rounded-full ${statusClasses[item.Status]}`}>
+                    {item.Status}
+                  </span>
+                </div>
 
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p><b>Start Time:</b> {item.StartTime}</p>
+                
+                  <p className="break-all"><b>ActivityDate:</b> {item.ActivityDate}</p>
+                  <p><b>CreatedBy:</b> {item.CreatedBy}</p>
+                  <p><b>TaskOwner:</b> {item.TaskOwner}</p>
+                </div>
+
+                <div className="flex justify-end gap-4 mt-3">
+                  <AiFillEdit className="text-blue-600 text-xl cursor-pointer" />
+                  <AiFillDelete className="text-red-600 text-xl cursor-pointer" />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>

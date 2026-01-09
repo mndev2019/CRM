@@ -1,148 +1,128 @@
 import React, { useState } from "react";
-import { FaPhone, FaEnvelope, FaUserEdit, FaRegCopy } from "react-icons/fa";
-import userIcon from "../../assets/Images/logo.png";
-import Topnav from "../../Component/Topnav";
+import { FaUserEdit } from "react-icons/fa";
 import { RiEdit2Fill } from "react-icons/ri";
-import edit from '../../assets/Svg/edit.svg'
-import camera from '../../assets/Svg/camera.svg'
-import remove from '../../assets/Svg/remove.svg'
-import newlead from '../../assets/Images/profile.png'
+import Topnav from "../../Component/Topnav";
+import userIcon from "../../assets/Images/logo.png";
+import edit from '../../assets/Svg/edit.svg';
+import camera from '../../assets/Svg/camera.svg';
+import remove from '../../assets/Svg/remove.svg';
+import newlead from '../../assets/Images/profile.png';
 
 const CompanyProfile = () => {
-    const [showeditpopup, setshoweditpopup] = useState()
+    const [showeditpopup, setShowEditPopup] = useState(false);
+
     return (
         <>
             <Topnav title="Company Profile" subtitle="Manage your personal profile" icon={newlead} />
-            <section className="px-10 py-8 bg-white rounded-bl-2xl rounded-br-2xl">
+
+            <section className="px-5 sm:px-10 py-8 bg-white rounded-bl-2xl rounded-br-2xl">
                 {/* Header Section */}
-                <div className="flex gap-6 items-center">
+                <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
                     {/* User Avatar */}
-                    <div className="relative inline-block border border-[#EDEEF4] rounded p-5">
+                    <div className="relative inline-block border border-[#EDEEF4] rounded p-4 sm:p-5">
                         <img
                             src={userIcon}
                             alt="User Avatar"
-                            className="h-20 w-60"
+                            className="h-24 w-24 sm:w-60 md:object-cover object-contain rounded"
                         />
 
                         {/* Edit Icon Button */}
-                        <button onClick={() => setshoweditpopup(!showeditpopup)} className="absolute bottom-[-12px] right-2 bg-white shadow-md hover:shadow-lg h-8 w-8 rounded-full flex items-center justify-center">
+                        <button
+                            onClick={() => setShowEditPopup(!showeditpopup)}
+                            className="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 bg-white shadow-md hover:shadow-lg h-8 w-8 rounded-full flex items-center justify-center"
+                        >
                             <RiEdit2Fill className="text-[#6C4FFB] text-lg" />
                         </button>
-                        {showeditpopup &&
-                            <div className="bg-white rounded-[12px] shadow p-3 absolute space-y-1 min-w-[250px] top-[3px] left-[297px]">
-                                <div className="flex items-center gap-2">
+
+                        {/* Edit Popup */}
+                        {showeditpopup && (
+                            <div className="bg-white rounded-xl shadow p-3 absolute top-0 left-full ml-2 space-y-2 min-w-[200px] sm:min-w-[250px] z-10">
+                                <div className="flex items-center gap-2 cursor-pointer hover:bg-gray-100 p-1 rounded">
                                     <img src={edit} className="h-5" />
-                                    <p className="inter text-[#363636] text-[14px] font-medium">
-                                        Change profile picture
-                                    </p>
+                                    <p className="text-[#363636] text-[14px] font-medium">Change profile picture</p>
                                 </div>
-                                <div className="flex items-center gap-2">
+                                <div className="flex items-center gap-2 cursor-pointer hover:bg-gray-100 p-1 rounded">
                                     <img src={camera} className="h-5" />
-                                    <p className="inter text-[#363636] text-[14px] font-medium">
-                                        Take profile picture
-                                    </p>
+                                    <p className="text-[#363636] text-[14px] font-medium">Take profile picture</p>
                                 </div>
-                                <div className="flex items-center gap-2">
+                                <div className="flex items-center gap-2 cursor-pointer hover:bg-gray-100 p-1 rounded">
                                     <img src={remove} className="h-5" />
-                                    <p className="inter text-[#363636] text-[14px] font-medium">
-                                        Remove profile picture
-                                    </p>
+                                    <p className="text-[#363636] text-[14px] font-medium">Remove profile picture</p>
                                 </div>
-
-
                             </div>
-
-                        }
+                        )}
                     </div>
 
-
-
-                    <div>
-                        {/* Name + Role */}
-                        <div className="flex items-center gap-3">
-                            <h1 className="text-2xl font-bold text-gray-900 nunito">Custom Logo</h1>
-
-                        </div>
-
-                        {/* User ID + Copy Icon */}
-                        <span className="text-[#363636] inter flex items-center gap-2 text-sm my-1 inter">
+                    {/* Company Name + Info */}
+                    <div className="flex-1">
+                        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Custom Logo</h1>
+                        <p className="text-gray-600 text-sm sm:text-base">
                             Upload your company’s logo for personalization
-                        </span>
-
-
+                        </p>
                     </div>
                 </div>
 
-                {/* Hide Details */}
-                {/* <div className="flex items-center gap-1 cursor-pointer mt-6 text-gray-600 font-medium">
-          <span>Hide Details</span>
-          <IoMdArrowDropdown />
-        </div> */}
-
-                {/* User Information */}
-                <div className="mt-5 flex justify-between items-center">
+                {/* Company Information Header */}
+                <div className="mt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center">
                     <h2 className="font-semibold text-lg">Company Information</h2>
-                    <div className="flex items-center gap-2 text-gray-600 cursor-pointer">
+                    <div className="flex items-center gap-2 text-gray-600 cursor-pointer mt-2 sm:mt-0">
                         <span>Edit</span>
                         <FaUserEdit />
                     </div>
                 </div>
 
                 {/* Info Table */}
-                <div className="mt-6 grid grid-cols-2 gap-y-3 gap-x-20 text-sm">
-                    <p className="text-gray-500 inter text-[16px]">Company Name</p>
-                    <p className="text-[#363636] inter text-[16px]">Ramote IT Services|</p>
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-md">
+                    <p className="text-gray-500">Company Name</p>
+                    <p className="text-[#363636]">Ramote IT Services</p>
 
-                    <p className="text-gray-500 inter text-[16px]">Date Format</p>
-                    <p className="text-[#363636] inter text-[16px]">mm/dd/yy</p>
+                    <p className="text-gray-500">Date Format</p>
+                    <p className="text-[#363636]">mm/dd/yy</p>
 
-                    <p className="text-gray-500 inter text-[16px]">Phone No. Format</p>
-                    <p className="text-[#363636] inter text-[16px]">+CountryCode-1234567890</p>
+                    <p className="text-gray-500">Phone No. Format</p>
+                    <p className="text-[#363636]">+CountryCode-1234567890</p>
 
-                    <p className="text-gray-500 inter text-[16px]">Default Country Code</p>
-                    <p className="text-[#363636] inter text-[16px]">ishaxyz@gmail.com</p>
+                    <p className="text-gray-500">Default Country Code</p>
+                    <p className="text-[#363636]">ishaxyz@gmail.com</p>
 
-                    <p className="text-gray-500 inter text-[16px]">Default Currency</p>
-                    <p className="text-[#363636] inter text-[16px]">Symbol: $     Abbreviation: USD    Name: US Dollars       Format: </p>
+                    <p className="text-gray-500">Default Currency</p>
+                    <p className="text-[#363636]">Symbol: $ | Abbreviation: USD | Name: US Dollars | Format: </p>
 
-                    <p className="text-gray-500 inter text-[16px]">Time Zone</p>
-                    <p className="text-[#363636] inter text-[16px]" >(GMT-05:00) Eastern Time (Us and Canada)</p>
+                    <p className="text-gray-500">Time Zone</p>
+                    <p className="text-[#363636]">(GMT-05:00) Eastern Time (US and Canada)</p>
 
-                    <p className="text-gray-500 inter text-[16px]">Website</p>
-                    <p className="text-[#363636] inter text-[16px]">ramotit.www.com</p>
+                    <p className="text-gray-500">Website</p>
+                    <p className="text-[#363636]">ramotit.www.com</p>
 
-                    <p className="text-gray-500 inter text-[16px]">Street1</p>
-                    <p className="text-[#363636] inter text-[16px]">-</p>
+                    <p className="text-gray-500">Street1</p>
+                    <p className="text-[#363636]">-</p>
 
-                    <p className="text-gray-500 inter text-[16px]">Street2</p>
-                    <p className="text-[#363636] inter text-[16px]">-</p>
+                    <p className="text-gray-500">Street2</p>
+                    <p className="text-[#363636]">-</p>
 
-                    <p className="text-gray-500 inter text-[16px]">City</p>
-                    <p className="text-[#363636] inter text-[16px]">-</p>
+                    <p className="text-gray-500">City</p>
+                    <p className="text-[#363636]">-</p>
 
-                    <p className="text-gray-500 inter text-[16px]">State</p>
-                    <p className="text-[#363636] inter text-[16px]">-</p>
+                    <p className="text-gray-500">State</p>
+                    <p className="text-[#363636]">-</p>
 
-                    <p className="text-gray-500 inter text-[16px]">Country</p>
-                    <p className="text-[#363636] inter text-[16px]">-</p>
+                    <p className="text-gray-500">Country</p>
+                    <p className="text-[#363636]">-</p>
 
-                    <p className="text-gray-500 inter text-[16px]">Zip</p>
-                    <p className="text-[#363636] inter text-[16px]">-</p>
+                    <p className="text-gray-500">Zip</p>
+                    <p className="text-[#363636]">-</p>
 
-                    <p className="text-gray-500 inter text-[16px]">Fax</p>
-                    <p className="text-[#363636] inter text-[16px]">-</p>
+                    <p className="text-gray-500">Fax</p>
+                    <p className="text-[#363636]">-</p>
 
-                    <p className="text-gray-500 inter text-[16px]">Phone</p>
-                    <p className="text-[#363636] inter text-[16px]">-</p>
+                    <p className="text-gray-500">Phone</p>
+                    <p className="text-[#363636]">-</p>
 
-                    <p className="text-gray-500 inter text-[16px]">Allowed User Email Domains</p>
-                    <p className="text-[#363636] inter text-[16px]">ramotit services.ramot.com</p>
+                    <p className="text-gray-500">Allowed User Email Domains</p>
+                    <p className="text-[#363636]">ramotit services.ramot.com</p>
                 </div>
-
-
             </section>
         </>
-
     );
 };
 

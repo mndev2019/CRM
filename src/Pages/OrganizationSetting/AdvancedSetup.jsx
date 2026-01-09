@@ -4,6 +4,7 @@ import advancedsetup from '../../assets/Images/advancedsetup.png'
 import { FiSearch } from 'react-icons/fi'
 
 const AdvancedSetup = () => {
+
     const data = [
         {
             title: "Enable App Tabs",
@@ -34,6 +35,7 @@ const AdvancedSetup = () => {
             para: "Disables add notes feature for lead."
         },
     ]
+
     return (
         <>
             <Topnav
@@ -41,23 +43,25 @@ const AdvancedSetup = () => {
                 subtitle="Monitor and control all advanced CRM settings and behaviors from a single place."
                 icon={advancedsetup}
             />
-            <section className="p-4 bg-white rounded-bl-2xl rounded-br-2xl ">
-                <div className='border border-[#EDEEF4] rounded-[12px] p-4'>
+
+            <section className="p-4 sm:p-6 bg-white rounded-bl-2xl rounded-br-2xl">
+                <div className="border border-[#EDEEF4] rounded-[12px] p-4">
+
                     {/* Header */}
-                    <div className='flex justify-between items-center pb-6 border-b border-[#EDEEF4] '>
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 pb-6 border-b border-[#EDEEF4]">
 
                         {/* Search Box */}
-                        <div className="relative">
+                        <div className="relative w-full sm:w-auto">
                             <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg" />
                             <input
                                 type="text"
                                 placeholder="Search here"
-                                className="bg-transparent border-2 border-gray-300 text-md px-10 py-2 rounded-md  placeholder-[#898484] outline-none w-100"
+                                className="bg-transparent border-2 border-gray-300 text-md px-10 py-2 rounded-md placeholder-[#898484] outline-none w-full sm:w-[280px]"
                             />
                         </div>
 
                         {/* Notify Me */}
-                        <div className="flex items-center gap-2 ">
+                        <div className="flex items-center gap-2">
                             <input
                                 type="checkbox"
                                 id="notifyMe"
@@ -68,33 +72,34 @@ const AdvancedSetup = () => {
                             </label>
                         </div>
                     </div>
-                    {
-                        data.map((itm) => (
-                            <>
-                                <div className='flex items-center gap-20 border-b border-[#EDEEF4] py-4 justify-between'>
-                                    <div>
-                                        <h2 className='inter text-[18px] font-medium'>
-                                            {itm.title}
-                                        </h2>
-                                        <p className='inter text-[14px] text-[#4C4646] font-400'>
-                                            {itm.para}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <label className="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" className="sr-only peer" />
-                                            <div className="w-12 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:bg-blue-600 transition-all"></div>
-                                            <div className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow peer-checked:translate-x-6 transition-all"></div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </>
-                        ))
-                    }
+
+                    {/* Settings List */}
+                    {data.map((itm, index) => (
+                        <div
+                            key={index}
+                            className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-20 justify-between border-b border-[#EDEEF4] py-4"
+                        >
+                            <div className="flex-1">
+                                <h2 className="inter text-[18px] font-medium">
+                                    {itm.title}
+                                </h2>
+                                <p className="inter text-[14px] text-[#4C4646] font-400">
+                                    {itm.para}
+                                </p>
+                            </div>
+
+                            {/* Toggle */}
+                            <div className="self-start sm:self-center">
+                                <label className="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" className="sr-only peer" />
+                                    <div className="w-12 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:bg-blue-600 transition-all"></div>
+                                    <div className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow peer-checked:translate-x-6 transition-all"></div>
+                                </label>
+                            </div>
+                        </div>
+                    ))}
+
                 </div>
-
-
-
             </section>
         </>
     )

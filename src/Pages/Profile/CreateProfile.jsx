@@ -1,3 +1,4 @@
+
 import React from 'react'
 import Topnav from '../../Component/Topnav'
 import profile from '../../assets/Images/profile.png'
@@ -11,9 +12,10 @@ const CreateProfile = () => {
                 icon={profile}
             />
 
-            <section className="px-10 py-8 bg-white rounded-bl-2xl rounded-br-2xl">
+            <section className="px-4 sm:px-6 md:px-10 py-6 sm:py-8 bg-white rounded-bl-2xl rounded-br-2xl">
                 <form>
-                    <div className="mt-6 grid grid-cols-3 gap-6">
+                    {/* FORM GRID */}
+                    <div className="md:mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
                         {/* First Name */}
                         <div className="flex flex-col">
@@ -132,7 +134,6 @@ const CreateProfile = () => {
                             </label>
                             <input
                                 type="text"
-
                                 className="border border-gray-300 px-3 py-2 rounded-md focus:border-[#2A75FF] outline-none"
                             />
                         </div>
@@ -149,10 +150,14 @@ const CreateProfile = () => {
                         </div>
                     </div>
 
-                    {/* Submit Button */}
-                    {/* SAVE Button */}
+                    {/* SAVE BUTTON */}
                     <div className="mt-10 flex justify-end">
-                        <button className="border-2 border-indigo-500 text-indigo-600 font-semibold py-2 px-10 rounded-md hover:bg-indigo-500 hover:text-white transition">
+                        <button className="
+                            border-2 border-indigo-500 text-indigo-600
+                            font-semibold py-2 px-10 rounded-md
+                            hover:bg-indigo-500 hover:text-white transition
+                            w-full sm:w-auto
+                        ">
                             SAVE
                         </button>
                     </div>
@@ -163,3 +168,4 @@ const CreateProfile = () => {
 }
 
 export default CreateProfile
+

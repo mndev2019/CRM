@@ -23,6 +23,25 @@ const EngagedLead = () => {
         Pending: "bg-[#FFF7CC] text-[#C49A00]",
     };
 
+    const leads = [
+        {
+            name: "Carissa Kidman",
+            company: "Oh my Goodknits",
+            phone: "555-555-5555",
+            email: "carisssa@noemail.com",
+            country: "India",
+            status: "Processing",
+        },
+        {
+            name: "Crissa Kidman",
+            company: "Oh my Goodknits",
+            phone: "555-555-5555",
+            email: "carisssa@noemail.com",
+            country: "India",
+            status: "Pending",
+        },
+    ]
+
     return (
         <>
             <Topnav
@@ -33,10 +52,10 @@ const EngagedLead = () => {
 
             {/* responsive padding */}
             <section className="p-3 sm:p-6 bg-white rounded-bl-2xl rounded-br-2xl">
-                <div className="rounded-[12px] border border-[#EDEEF4] p-3">
+                <div className="rounded-[12px] md:border border-[#EDEEF4] p-3">
 
                     {/* ---------- Filter Row ---------- */}
-                    <div className="flex flex-col sm:flex-row sm:justify-between gap-3 py-2 border-b-2 border-[#EDEEF4]">
+                    <div className="flex flex-col sm:flex-row sm:justify-between md:gap-3 py-2 border-b-2 border-[#EDEEF4]">
                         <div className="flex gap-2 items-center">
                             {/* <FaRegPlusSquare />
                             <h2 className="inter font-mediun text-[18px]">Filter</h2> */}
@@ -118,10 +137,10 @@ const EngagedLead = () => {
                             >
                                 ✕
                             </button>
-
+                            {/* 
                             <button className="flex items-center gap-1 bg-[#FDD7D8] border-2 border-[#FFA4AD] text-[#FF1216] text-[16px] px-3 py-1 rounded-md">
                                 <CiEraser /> Clear
-                            </button>
+                            </button> */}
                         </div>
 
                         {/* RIGHT */}
@@ -148,7 +167,7 @@ const EngagedLead = () => {
                     </div>
 
                     {/* ---------- Table ---------- */}
-                    <div className="overflow-x-auto">
+                    <div className="hidden md:block overflow-x-auto">
                         <table className="min-w-[900px] w-full text-sm">
                             <thead>
                                 <tr className="bg-[#E4FFEB] border-b border-[#EDEEF4] inter font-semibold">
@@ -165,24 +184,7 @@ const EngagedLead = () => {
                             </thead>
 
                             <tbody>
-                                {[
-                                    {
-                                        name: "Carissa Kidman",
-                                        company: "Oh my Goodknits",
-                                        phone: "555-555-5555",
-                                        email: "carisssa@noemail.com",
-                                        country: "India",
-                                        status: "Processing",
-                                    },
-                                    {
-                                        name: "Crissa Kidman",
-                                        company: "Oh my Goodknits",
-                                        phone: "555-555-5555",
-                                        email: "carisssa@noemail.com",
-                                        country: "India",
-                                        status: "Pending",
-                                    },
-                                ].map((item, i) => (
+                                {leads.map((item, i) => (
                                     <tr
                                         key={i}
                                         className="border-b border-[#EDEEF4] hover:bg-[#EDEEF4]"
@@ -206,6 +208,27 @@ const EngagedLead = () => {
                                 ))}
                             </tbody>
                         </table>
+                    </div>
+                    <div className="md:hidden space-y-4">
+                        {leads.map((item, i) => (
+                            <div key={i} className="border border-[#EDEEF4] rounded-xl p-4 shadow-sm">
+                                <div className="flex justify-between items-center mb-2">
+                                    <h3 className="font-semibold text-[16px]">{item.name}</h3>
+                                    <span className={`text-xs px-3 py-1 rounded-full ${statusClasses[item.status]}`}>
+                                        {item.status}
+                                    </span>
+                                </div>
+
+                                <div className="text-sm text-gray-600 space-y-1">
+                                    <p><b>Company:</b> {item.company}</p>
+                                    <p><b>Phone:</b> {item.phone}</p>
+                                    <p className="break-all"><b>Email:</b> {item.email}</p>
+                                    <p><b>Country:</b> {item.country}</p>
+                                </div>
+
+
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>

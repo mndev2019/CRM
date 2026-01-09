@@ -52,10 +52,10 @@ const ViewNeawLead = () => {
       />
 
       <section className="p-4 sm:p-6 bg-white rounded-bl-2xl rounded-br-2xl">
-        <div className="rounded-[12px] border border-[#EDEEF4] p-3">
+        <div className="rounded-[12px] md:border border-[#EDEEF4] md:p-3">
 
           {/* ================= FILTER HEADER ================= */}
-          <div className="flex flex-col sm:flex-row justify-between gap-4 py-2 border-b-2 border-[#EDEEF4]">
+          <div className="flex flex-col sm:flex-row justify-between md:gap-4 py-2 border-b-2 border-[#EDEEF4]">
 
             <div className="flex gap-2 items-center">
               {/* <FaRegPlusSquare />
@@ -135,9 +135,9 @@ const ViewNeawLead = () => {
 
               <button onClick={() => setactivityDate("")}>✕</button>
 
-              <button className="flex items-center gap-1 bg-[#FDD7D8] border border-[#FFA4AD] text-[#FF1216] px-3 py-1 rounded-md">
+              {/* <button className="flex items-center gap-1 bg-[#FDD7D8] border border-[#FFA4AD] text-[#FF1216] px-3 py-1 rounded-md">
                 <CiEraser /> Clear
-              </button>
+              </button> */}
             </div>
 
             {/* Right */}
