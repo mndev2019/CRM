@@ -103,7 +103,7 @@ const Dashboard = () => {
                         </button>
 
                         {showCalendar && (
-                            <div className="absolute md:right-0 mt-2 z-50 bg-white p-2 rounded-lg shadow-lg">
+                            <div className="absolute md:right-0   mt-2 z-50 bg-white p-2 rounded-lg shadow-lg">
                                 <Calendar value={date} tileClassName={tileClassName} />
                             </div>
                         )}

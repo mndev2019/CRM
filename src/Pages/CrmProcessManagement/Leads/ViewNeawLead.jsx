@@ -17,6 +17,25 @@ const ViewNeawLead = () => {
   const [showDotsMenu, setShowDotsMenu] = useState(false);
   const [activityDate, setactivityDate] = useState("");
 
+    const leads = [
+    {
+      name: "Carissa Kidman",
+      company: "Oh my Goodknits",
+      phone: "555-555-5555",
+      email: "carissa@noemail.com",
+      country: "India",
+      status: "Processing",
+    },
+    {
+      name: "Crissa Kidman",
+      company: "Oh my Goodknits",
+      phone: "555-555-5555",
+      email: "carissa@noemail.com",
+      country: "India",
+      status: "Pending",
+    },
+  ];
+
   const statusClasses = {
     Processing: "bg-[#E6F9E8] text-[#1F7A24]",
     Completed: "bg-[#EFFFF0] text-[#049B1D]",
@@ -140,7 +159,7 @@ const ViewNeawLead = () => {
           </div>
 
           {/* ================= TABLE ================= */}
-          <div className="overflow-x-auto">
+          <div className="hidden md:block overflow-x-auto">
             <table className="min-w-[900px] w-full text-sm">
               <thead>
                 <tr className="bg-[#E4F3FF]">
@@ -156,10 +175,7 @@ const ViewNeawLead = () => {
               </thead>
 
               <tbody>
-                {[
-                  { name: "Carissa Kidman", company: "Oh my Goodknits", phone: "555-555-5555", email: "carissa@noemail.com", country: "India", status: "Processing" },
-                  { name: "Crissa Kidman", company: "Oh my Goodknits", phone: "555-555-5555", email: "carissa@noemail.com", country: "India", status: "Pending" },
-                ].map((item, i) => (
+                {leads.map((item, i) => (
                   <tr key={i} className="border-b border-[#EDEEF4] hover:bg-[#EDEEF4]">
                     <td className="p-3"><input type="checkbox" /></td>
                     <td className="p-3">{item.name}</td>
@@ -182,6 +198,32 @@ const ViewNeawLead = () => {
             </table>
           </div>
 
+           {/* ================= MOBILE CARD VIEW ================= */}
+           <div className="md:hidden space-y-4">
+             {leads.map((item, i) => (
+               <div key={i} className="border border-[#EDEEF4] rounded-xl p-4 shadow-sm">
+                 <div className="flex justify-between items-center mb-2">
+                   <h3 className="font-semibold text-[16px]">{item.name}</h3>
+                   <span className={`text-xs px-3 py-1 rounded-full ${statusClasses[item.status]}`}>
+                     {item.status}
+                   </span>
+                 </div>
+
+                 <div className="text-sm text-gray-600 space-y-1">
+                   <p><b>Company:</b> {item.company}</p>
+                   <p><b>Phone:</b> {item.phone}</p>
+                   <p className="break-all"><b>Email:</b> {item.email}</p>
+                   <p><b>Country:</b> {item.country}</p>
+                 </div>
+
+                 <div className="flex justify-end gap-4 mt-3">
+                   <AiFillEdit className="text-blue-600 text-xl cursor-pointer" />
+                   <AiFillDelete className="text-red-600 text-xl cursor-pointer" />
+                 </div>
+               </div>
+             ))}
+           </div>
+
         </div>
       </section>
     </>
@@ -189,3 +231,4 @@ const ViewNeawLead = () => {
 };
 
 export default ViewNeawLead;
+
