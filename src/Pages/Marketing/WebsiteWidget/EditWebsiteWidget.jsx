@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Topnav from "../../../Component/Topnav";
 import websitewidget from '../../../assets/Images/globe 1.png'
+import { useNavigate } from "react-router-dom";
 
 const EditWebsiteWidget = () => {
+    const navigate = useNavigate();
     const [headlineBg, setHeadlineBg] = useState("#F36A6A");
     const [headlineTextColor, setHeadlineTextColor] = useState("#FFFFFF");
     const [buttonBg, setButtonBg] = useState("#000000");
@@ -26,14 +28,16 @@ const EditWebsiteWidget = () => {
                 subtitle="Lead captured via website widget. Action required to move forward in the pipeline."
                 icon={websitewidget}
             />
-            <section className="p-4 bg-white rounded-bl-2xl rounded-br-2xl">
+
+            <section className="p-3 sm:p-4 bg-white rounded-bl-2xl rounded-br-2xl">
                 <div className="border border-[#EDEEF4] rounded-[12px] bg-white">
+
                     {/* Preview Bar */}
                     <div
-                        className="flex items-center justify-between px-6 py-3 rounded-t-lg"
+                        className="flex flex-col sm:flex-row items-center sm:justify-between px-4 sm:px-6 py-3 rounded-t-lg gap-2 sm:gap-0 text-center sm:text-left"
                         style={{ backgroundColor: headlineBg, color: headlineTextColor }}
                     >
-                        <span className="font-bold inter text-[18px]">Your headline goes here.</span>
+                        <span className="font-bold inter text-[16px] sm:text-[18px]">Your headline goes here.</span>
                         <button
                             className="px-4 py-1 rounded text-sm inter font-bold"
                             style={{ backgroundColor: buttonBg, color: buttonTextColor }}
@@ -43,12 +47,13 @@ const EditWebsiteWidget = () => {
                     </div>
 
                     {/* Settings */}
-                    <div className="p-6">
-                        <h2 className="font-bold inter text-[20px] mb-4">Topbar Settings</h2>
+                    <div className="p-4 sm:p-6">
+                        <h2 className="font-bold inter text-[18px] sm:text-[20px] mb-4">Topbar Settings</h2>
 
                         <div className="border border-[#EDEEF4] rounded-lg overflow-hidden">
+
                             {/* Apply skins */}
-                            <div className="flex items-center justify-end gap-2 px-4 py-3 border-b border-[#EDEEF4]">
+                            <div className="flex flex-wrap items-center justify-end gap-2 px-4 py-3 border-b border-[#EDEEF4]">
                                 <span className="text-sm text-gray-600 mr-2">Apply Skins</span>
                                 {skins.map((color) => (
                                     <button
@@ -62,9 +67,10 @@ const EditWebsiteWidget = () => {
 
                             {/* Headline Section */}
                             <div className="bg-gray-100 px-4 py-2 font-medium">Headline</div>
-                            <div className="grid grid-cols-2 gap-6 p-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4">
+
                                 <div>
-                                    <label className="block text-[18px] inter font-semibold mb-1">Text</label>
+                                    <label className="block text-[16px] sm:text-[18px] inter font-semibold mb-1">Text</label>
                                     <input
                                         type="text"
                                         className="w-full border border-[#A6A4A4] rounded px-3 py-2"
@@ -72,9 +78,9 @@ const EditWebsiteWidget = () => {
                                     />
                                 </div>
 
-                                <div className="flex gap-4">
+                                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                                     <div>
-                                        <label className="block text-[18px] inter font-semibold mb-1">Text Color</label>
+                                        <label className="block text-[16px] sm:text-[18px] inter font-semibold mb-1">Text Color</label>
                                         <div className="flex items-center gap-2 border border-[#A6A4A4] rounded px-2 py-1">
                                             <input
                                                 type="color"
@@ -86,7 +92,7 @@ const EditWebsiteWidget = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-[18px] inter font-semibold mb-1">Background</label>
+                                        <label className="block text-[16px] sm:text-[18px] inter font-semibold mb-1">Background</label>
                                         <div className="flex items-center gap-2 border border-[#A6A4A4] rounded px-2 py-1">
                                             <input
                                                 type="color"
@@ -97,13 +103,15 @@ const EditWebsiteWidget = () => {
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
 
                             {/* Button Section */}
                             <div className="bg-gray-100 px-4 py-2 font-medium">Button</div>
-                            <div className="grid grid-cols-2 gap-6 p-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4">
+
                                 <div>
-                                    <label className="block text-[18px] inter font-semibold mb-1">Text</label>
+                                    <label className="block text-[16px] sm:text-[18px] inter font-semibold mb-1">Text</label>
                                     <input
                                         type="text"
                                         className="w-full border border-[#A6A4A4] rounded px-3 py-2"
@@ -111,9 +119,9 @@ const EditWebsiteWidget = () => {
                                     />
                                 </div>
 
-                                <div className="flex gap-4">
+                                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                                     <div>
-                                        <label className="block text-[18px] inter font-semibold mb-1">Text Color</label>
+                                        <label className="block text-[16px] sm:text-[18px] inter font-semibold mb-1">Text Color</label>
                                         <div className="flex items-center gap-2 border border-[#A6A4A4] rounded px-2 py-1">
                                             <input
                                                 type="color"
@@ -125,7 +133,7 @@ const EditWebsiteWidget = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-[18px] inter font-semibold mb-1">Background</label>
+                                        <label className="block text-[16px] sm:text-[18px] inter font-semibold mb-1">Background</label>
                                         <div className="flex items-center gap-2 border border-[#A6A4A4] rounded px-2 py-1">
                                             <input
                                                 type="color"
@@ -136,29 +144,30 @@ const EditWebsiteWidget = () => {
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
 
                             {/* Link */}
                             <div className="px-4 pb-6">
-                                <label className="block text-[18px] inter font-semibold mb-1">Link</label>
+                                <label className="block text-[16px] sm:text-[18px] inter font-semibold mb-1">Link</label>
                                 <input
                                     type="text"
                                     className="w-full border border-[#A6A4A4] rounded px-3 py-2"
                                     placeholder="https://example.com"
                                 />
                             </div>
+
                         </div>
 
                         {/* Footer */}
-                        <div className="flex justify-end gap-3 mt-6">
-                            <button className="px-4 py-2 border rounded text-blue-600">Close</button>
-                            <button className="px-4 py-2 bg-blue-600 text-white rounded">Save</button>
+                        <div className="flex flex-col sm:flex-row justify-end gap-3 mt-6">
+                            <button onClick={()=> navigate('/create-widget')} className="px-4 py-2 border rounded text-blue-600 w-full sm:w-auto">Close</button>
+                            <button onClick={()=> navigate('/create-widget')} className="px-4 py-2 bg-blue-600 text-white rounded w-full sm:w-auto">Save</button>
                         </div>
                     </div>
                 </div>
             </section>
         </>
-
     );
 };
 

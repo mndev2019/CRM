@@ -1,3 +1,41 @@
+// import React from "react";
+// import Topnav from "../../../Component/Topnav";
+// import emailCampaign from "../../../assets/Images/emailcampaign.png";
+// import EmailStepper from "../EmailMarketting/EmailStepper";
+// import ScheduleBox from "./ScheduleBox";
+
+// const Schedule = () => {
+//     return (
+//         <>
+//             <Topnav
+//                 title="Email Campaigns"
+//                 subtitle="Contacts here receive targeted emails to warm them up and move them closer to conversion."
+//                 icon={emailCampaign}
+//             />
+
+//             <section className="p-4 bg-white rounded-bl-2xl rounded-br-2xl">
+//                 <EmailStepper currentStep={3} />
+
+//                 <div className="mt-6 border border-[#EDEEF4] rounded-md">
+//                     <ScheduleBox/>
+//                 </div>
+//                  <div className="flex justify-end items-center mt-6">
+
+//                     <button
+
+//                         className="bg-blue-600 text-white px-6 py-2 rounded"
+//                     >
+//                         Save
+//                     </button>
+                     
+//                 </div>
+//             </section>
+//         </>
+//     );
+// };
+
+// export default Schedule;
+
 import React from "react";
 import Topnav from "../../../Component/Topnav";
 import emailCampaign from "../../../assets/Images/emailcampaign.png";
@@ -13,21 +51,19 @@ const Schedule = () => {
                 icon={emailCampaign}
             />
 
-            <section className="p-4 bg-white rounded-bl-2xl rounded-br-2xl">
-                <EmailStepper currentStep={3} />
-
-                <div className="mt-6 border border-[#EDEEF4] rounded-md">
-                    <ScheduleBox/>
+            <section className="p-4 md:p-6 bg-white rounded-bl-2xl rounded-br-2xl">
+                <div className="">
+                    <EmailStepper currentStep={3} />
                 </div>
-                 <div className="flex justify-end items-center mt-6">
 
-                    <button
+                <div className="mt-6 border border-[#EDEEF4] rounded-md overflow-x-auto">
+                    <ScheduleBox />
+                </div>
 
-                        className="bg-blue-600 text-white px-6 py-2 rounded"
-                    >
+                <div className="flex justify-end items-center mt-6">
+                    <button className="bg-blue-600 text-white px-4 md:px-6 py-2 md:py-2 rounded text-sm md:text-base whitespace-nowrap">
                         Save
                     </button>
-                     
                 </div>
             </section>
         </>
@@ -35,3 +71,4 @@ const Schedule = () => {
 };
 
 export default Schedule;
+

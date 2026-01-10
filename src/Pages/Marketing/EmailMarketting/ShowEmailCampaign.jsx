@@ -2,12 +2,19 @@ import React from 'react'
 import emailCampaign from "../../../assets/Images/emailcampaign.png";
 import Topnav from '../../../Component/Topnav'
 import { FiChevronDown, FiSearch } from 'react-icons/fi'
-import { HiOutlineCursorClick } from 'react-icons/hi'
-import { useNavigate } from 'react-router-dom'
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom'
 
 const ShowEmailCampaign = () => {
     const navigate = useNavigate();
+
+    const data = [
+        { name: 'Carissa Kidman', status: 'Draft', scheduleDate: '12/13/2025 02:28 AM', category: 'NewsLetter', modifiedBy: 'Admin' },
+        { name: 'John Doe', status: 'Scheduled', scheduleDate: '12/14/2025 10:15 AM', category: 'Promotion', modifiedBy: 'Admin' },
+        { name: 'Jane Smith', status: 'In Progress', scheduleDate: '12/15/2025 08:45 AM', category: 'Update', modifiedBy: 'Admin' },
+        { name: 'Michael Brown', status: 'Sent', scheduleDate: '12/16/2025 11:30 AM', category: 'NewsLetter', modifiedBy: 'Admin' },
+    ];
+
     return (
         <>
             <Topnav
@@ -15,14 +22,15 @@ const ShowEmailCampaign = () => {
                 subtitle="Contacts here receive targeted emails to warm them up and move them closer to conversion."
                 icon={emailCampaign}
             />
-            <section className='p-4 bg-white rounded-bl-2xl rounded-br-2xl'>
-                <div className=" border border-[#EDEEF4] rounded-[12px] bg-white">
+
+            <section className='p-3 sm:p-4 bg-white rounded-bl-2xl rounded-br-2xl'>
+                <div className="border border-[#EDEEF4] rounded-[12px] bg-white">
 
                     {/* Top Section */}
-                    <div className="flex items-center justify-between mb-4 p-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 p-4 gap-4 sm:gap-0">
 
                         {/* Search Box */}
-                        <div className="relative w-[260px]">
+                        <div className="relative w-full sm:w-[260px]">
                             <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[18px]" />
                             <input
                                 type="text"
@@ -32,59 +40,46 @@ const ShowEmailCampaign = () => {
                         </div>
 
                         {/* Button */}
-                        <button onClick={() => navigate('/create-email-campaign')} className="text-white font-semibold px-4 py-2 rounded-md cursor-pointer
-                              bg-[linear-gradient(180deg,#049B1D_22.26%,#01582C_100%)]">
+                        <button
+                            onClick={() => navigate('/create-email-campaign')}
+                            className="text-white font-semibold px-4 py-2 rounded-md cursor-pointer
+                              bg-[linear-gradient(180deg,#049B1D_22.26%,#01582C_100%)] w-full sm:w-auto"
+                        >
                             Create Email Campaign
                         </button>
                     </div>
 
                     {/* Filters */}
-                    <div className="flex  gap-10 text-sm text-gray-700  border-t border-[#EDEEF4] bg-[#F8F9FB] p-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-10 text-sm text-gray-700 border-t border-[#EDEEF4] bg-[#F8F9FB] p-4">
 
-                        <div className="relative w-[180px] flex gap-2">
-                            <label className='inter font-500 text-[16px] text-[#363636]'>Status</label>
-                            <select
-                                className="w-full appearance-none bg-transparent 
-                                border-0 border-b border-[#D0D5DD] 
-                                pb-1 pr-6 text-sm text-gray-600 
-                                focus:outline-none focus:border-[#049B1D]"
-                            >
-                                <option value="">All</option>
-                                <option value="">Draft</option>
-                                <option value="">Scheduled</option>
-                                <option value="">In Progress</option>
-                                <option value="">Sent</option>
-                                <option value="">Complete</option>
-                                <option value="">Error</option>
-
-
+                        <div className="relative w-full sm:w-[180px] flex flex-col">
+                            <label className='inter font-500 text-[16px] text-[#363636] mb-1'>Status</label>
+                            <select className="w-full appearance-none bg-transparent border-0 border-b border-[#D0D5DD] pb-1 pr-6 text-sm text-gray-600 focus:outline-none focus:border-[#049B1D]">
+                                <option>All</option>
+                                <option>Draft</option>
+                                <option>Scheduled</option>
+                                <option>In Progress</option>
+                                <option>Sent</option>
+                                <option>Complete</option>
+                                <option>Error</option>
                             </select>
-
-                            <FiChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
+                            <FiChevronDown className="absolute right-0 top-[28px] text-gray-500 pointer-events-none" />
                         </div>
 
-
-                        <div className="relative w-[180px] flex gap-2">
-                            <label className='inter font-500 text-[16px] text-[#363636]'>CreatedBy</label>
-                            <select
-                                className="w-full appearance-none bg-transparent 
-                                border-0 border-b border-[#D0D5DD] 
-                                pb-1 pr-6 text-sm text-gray-600 
-                                focus:outline-none focus:border-[#049B1D]"
-                            >
-                                <option value="">Admin</option>
-                                <option value="">System</option>
+                        <div className="relative w-full sm:w-[180px] flex flex-col">
+                            <label className='inter font-500 text-[16px] text-[#363636] mb-1'>Created By</label>
+                            <select className="w-full appearance-none bg-transparent border-0 border-b border-[#D0D5DD] pb-1 pr-6 text-sm text-gray-600 focus:outline-none focus:border-[#049B1D]">
+                                <option>Admin</option>
+                                <option>System</option>
                             </select>
-
-                            <FiChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
+                            <FiChevronDown className="absolute right-0 top-[28px] text-gray-500 pointer-events-none" />
                         </div>
 
                     </div>
 
-                    {/* Table */}
-                    <div className="border border-[#EDEEF4] overflow-hidden">
-                        <table className="w-full text-sm">
-
+                    {/* Table for Desktop */}
+                    <div className="hidden sm:block border border-[#EDEEF4] overflow-x-auto">
+                        <table className="w-full text-sm min-w-[700px]">
                             <thead className="bg-[#EAF6FF] inter *:text-[15px]">
                                 <tr>
                                     <th className="px-4 py-3 text-left">Name</th>
@@ -97,38 +92,55 @@ const ShowEmailCampaign = () => {
                             </thead>
 
                             <tbody>
-                                {[1, 2, 3, 4].map((_, i) => (
-                                    <tr
-                                        key={i}
-                                        className="border-t border-[#EAF6FF] "
-                                    >
-                                        <td className="px-4 py-3">Carissa Kidman</td>
-                                        <td className="px-4 py-3">Draft</td>
-                                        <td className="px-4 py-3">12/13/2025 02:28 AM</td>
-                                        <td className="px-4 py-3">NewsLetter</td>
-                                        <td className="px-4 py-3">Admin</td>
-                                        <td className="p-3 flex items-center gap-3">
-                                            {/* Edit Icon */}
-                                            <AiFillEdit
-                                                className="text-blue-600 cursor-pointer hover:scale-110 transition"
-                                                size={20}
-                                            />
-
-                                            {/* Delete Icon */}
-                                            <AiFillDelete
-                                                className="text-red-600 cursor-pointer hover:scale-110 transition"
-                                                size={20}
-                                            />
+                                {data.map((item, i) => (
+                                    <tr key={i} className="border-t border-[#EAF6FF]">
+                                        <td className="px-4 py-3">{item.name}</td>
+                                        <td className="px-4 py-3">{item.status}</td>
+                                        <td className="px-4 py-3">{item.scheduleDate}</td>
+                                        <td className="px-4 py-3">{item.category}</td>
+                                        <td className="px-4 py-3">{item.modifiedBy}</td>
+                                        <td className="p-3 flex justify-center gap-3 whitespace-nowrap">
+                                            <AiFillEdit className="text-blue-600 cursor-pointer hover:scale-110 transition" size={20} />
+                                            <AiFillDelete className="text-red-600 cursor-pointer hover:scale-110 transition" size={20} />
                                         </td>
                                     </tr>
                                 ))}
                             </tbody>
-
                         </table>
                     </div>
 
-                </div>
+                    {/* Card view for Mobile */}
+                    <div className="sm:hidden flex flex-col gap-4 p-4">
+                        {data.map((item, i) => (
+                            <div key={i} className="border border-[#EDEEF4] rounded-md p-4 bg-[#FAFAFA] shadow-sm">
+                                <div className="flex justify-between items-start mb-2 gap-2 flex-wrap">
+                                    <span className="font-semibold">{item.name}</span>
+                                    <div className="flex gap-2 mt-2 sm:mt-0">
+                                        <AiFillEdit className="text-blue-600 cursor-pointer hover:scale-110 transition" size={20} />
+                                        <AiFillDelete className="text-red-600 cursor-pointer hover:scale-110 transition" size={20} />
+                                    </div>
+                                </div>
+                                <div className="flex justify-between text-sm text-gray-600 mb-1">
+                                    <span>Status:</span>
+                                    <span>{item.status}</span>
+                                </div>
+                                <div className="flex justify-between text-sm text-gray-600 mb-1">
+                                    <span>Schedule Date:</span>
+                                    <span>{item.scheduleDate}</span>
+                                </div>
+                                <div className="flex justify-between text-sm text-gray-600 mb-1">
+                                    <span>Email Category:</span>
+                                    <span>{item.category}</span>
+                                </div>
+                                <div className="flex justify-between text-sm text-gray-600">
+                                    <span>Modified By:</span>
+                                    <span>{item.modifiedBy}</span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
 
+                </div>
             </section>
         </>
     )

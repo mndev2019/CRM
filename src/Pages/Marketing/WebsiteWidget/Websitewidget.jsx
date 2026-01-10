@@ -15,17 +15,19 @@ const Websitewidget = () => {
                 icon={websitewidget}
             />
 
-            <section className="p-4 bg-white rounded-bl-2xl rounded-br-2xl">
-                <div className="p-4 border border-[#EDEEF4] rounded-[12px] py-10 flex flex-col items-center justify-center">
-                    <h2 className="inter font-bold text-[20px] mb-6">
+            <section className="p-3 sm:p-4 bg-white rounded-bl-2xl rounded-br-2xl">
+                <div className="p-4 sm:p-6 border border-[#EDEEF4] rounded-[12px] py-8 sm:py-10 flex flex-col items-center justify-center">
+                    
+                    <h2 className="inter font-bold text-[18px] sm:text-[20px] mb-6">
                         Widgets
                     </h2>
 
                     {/* Buttons */}
-                    <div className="flex gap-4 mb-6">
+                    <div className="flex flex-col sm:flex-row gap-4 mb-6 w-full sm:w-auto items-center">
                         <button
                             onClick={() => navigate('/create-widget')}
-                            className="inter font-bold text-white text-[16px] rounded-[8px] px-5 py-2 cursor-pointer
+                            className="inter font-bold text-white text-[15px] sm:text-[16px]
+                            rounded-[8px] px-5 py-2 cursor-pointer w-full sm:w-auto
                             bg-[linear-gradient(180deg,#049B1D_22.26%,#01582C_100%)]"
                         >
                             Create New Widget
@@ -33,16 +35,21 @@ const Websitewidget = () => {
 
                         <button
                             onClick={() => navigate('/show-widget')}
-                            className="inter font-bold text-white text-[16px] rounded-[8px] px-5 py-2 cursor-pointer
+                            className="inter font-bold text-white text-[15px] sm:text-[16px]
+                            rounded-[8px] px-5 py-2 cursor-pointer w-full sm:w-auto
                             bg-[linear-gradient(180deg,#2A75FF_0%,#4FADFF_100%)]"
                         >
                             Show Widget
                         </button>
                     </div>
 
-                    <img src={image} className="border-b border-[#EDEEF4]" alt="Widget preview" />
+                    <img
+                        src={image}
+                        alt="Widget preview"
+                        className="border-b border-[#EDEEF4] w-full max-w-[900px] object-contain"
+                    />
 
-                    <p className="inter font-medium text-[15px] text-center pt-4 max-w-[700px]">
+                    <p className="inter font-medium text-[14px] sm:text-[15px] text-center pt-4 max-w-[700px] px-2">
                         Website widget helps capture visitor information seamlessly from your website and automatically stores it in your CRM. Easily customize the widget's appearance, fields, and placement to match your brand and boost lead generation.
                     </p>
                 </div>

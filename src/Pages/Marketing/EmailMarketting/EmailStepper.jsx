@@ -14,7 +14,7 @@ const steps = [
 
 const EmailStepper = ({ currentStep = 0 }) => {
   return (
-    <div className="flex items-center justify-between w-full px-10 py-6 bg-white">
+    <div className="flex items-center justify-between w-full lg:px-10 px-2 lg:py-6 py-2 bg-white">
       {steps.map((step, index) => {
         const Icon = step.icon;
         const isActive = index === currentStep;
@@ -28,26 +28,26 @@ const EmailStepper = ({ currentStep = 0 }) => {
 
               {/* Tooltip */}
               {isActive && (
-                <div className="absolute -top-10 mt-3 bg-[#9ED0FF] text-white text-xs px-3 py-1 rounded-md whitespace-nowrap">
+                <div className="absolute -top-10 mt-3 bg-[#9ED0FF] text-white text-xs px-3 py-1 rounded-md whitespace-nowrap lg:block hidden ">
                   Step: {index + 1} Message {step.label}
                 </div>
               )}
 
               {/* Circle */}
               <div
-                className={`w-12 h-12 flex items-center justify-center rounded-full border-2 bg-white
+                className={`md:w-12 w-7 md:h-12 h-7 flex items-center justify-center rounded-full border-2 bg-white
                   ${
                     isActive
                       ? "border-[#2A75FF] text-[#2A75FF]"
                       : "border-[#16A34A] text-[#16A34A]"
                   }`}
               >
-                <Icon size={22} />
+                <Icon className="md:text-xl text-md"/>
               </div>
 
               {/* Label */}
               <span
-                className={`mt-2 text-sm font-medium
+                className={`mt-2 md:text-sm text-xs font-medium 
                   ${isActive ? "text-[#2A75FF]" : "text-[#16A34A]"}`}
               >
                 {step.label}
@@ -66,3 +66,4 @@ const EmailStepper = ({ currentStep = 0 }) => {
 };
 
 export default EmailStepper;
+
