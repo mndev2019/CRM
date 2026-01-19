@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import loginIllustration from "../../assets/Images/loginside.png";
 import login from "../../assets/Images/logonew.png";
 import { useNavigate } from "react-router-dom";
@@ -26,10 +26,11 @@ const Login = () => {
       console.log("LOGIN RESPONSE:", res);
 
       if (res?.success && res?.data?.token) {
-        // localStorage.setItem("token", res.data.token);
-        localStorage.setItem("check", "working");
+        localStorage.setItem("token", res.data.token);
+
 
         toast.success("Login successful");
+        console.log("TOKEN FROM LS:", localStorage.getItem("token"));
         navigate("/dashboard");
       } else {
         toast.error(res?.message || "Login failed");
@@ -42,6 +43,9 @@ const Login = () => {
       );
     }
   };
+  useEffect(() => {
+    localStorage.clear();
+  }, [])
 
 
 

@@ -1,42 +1,6 @@
-// import React from 'react'
-// import Sidebar from './Sidebar'
-// import { Outlet} from 'react-router-dom'
-// import CRMChatbot from '../Component/CRMChatbot'
 
-// const Layout = () => {
-//     // const navigate = useNavigate();
-//     // const token = localStorage.getItem("token") ?? null;
-//     // useEffect(() => {
-//     //     if (token) {
-//     //         window.scrollTo(0, 0);
-//     //         navigate(location.pathname)
-//     //     } else {
-//     //         navigate('/login');
-//     //     }
-//     // }, [token]);
-
-
-//     return (
-//         <>
-//             <div className="flex h-screen">
-//                 <div className="bg-transparent transition-all duration-300 flex-shrink-0 sticky top-0 overflow-y-auto overflow-x-hidden custom-scrollbar">
-//                     <Sidebar />
-//                 </div>
-//                 <div className="w-[85%] flex-grow   h-full overflow-y-auto">
-//                     <main className="p-5 pb-5 ">
-//                         <Outlet />
-//                     </main>
-
-//                 </div>
-//                   <CRMChatbot/>
-//             </div>
-//         </>
-//     )
-// }
-
-// export default Layout
 import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
 
 import Sidebar from "./Sidebar";
@@ -45,7 +9,17 @@ import logo from '../assets/Images/logo.png'
 
 const Layout = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const navigate = useNavigate();
+    const token = localStorage.getItem("token") ?? null;
 
+
+    React.useEffect(() => {
+        if (token) {
+            navigate('/dashboard')
+        } else {
+            navigate('/login');
+        }
+    }, [token, navigate]);
     return (
         <div className="flex h-screen overflow-hidden">
 
@@ -85,7 +59,7 @@ const Layout = () => {
                     <button onClick={() => setSidebarOpen(true)}>
                         <HiMenu size={26} />
                     </button>
-                    <img src={logo} className="h-[50px]"/>
+                    <img src={logo} className="h-[50px]" />
 
                     {/* <h2 className="font-bold text-lg text-[#083560]">
                         RAMOT CRM
