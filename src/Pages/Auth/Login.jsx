@@ -1,10 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import loginIllustration from "../../assets/Images/loginside.png";
 import login from "../../assets/Images/logonew.png";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BASE_URL } from "../../Api/Base_Url";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const [email, setemail] = useState();
+  const [password, setpassword] = useState();
+  const handlesubmit = async (e) => {
+    e.preventDefault();
+
+    const requestdata = {
+      email,
+      password,
+    };
+
+    try {
+      const resp = await axios.post(`${BASE_URL}api/auth/login`, requestdata);
+      const res = resp.data;
+
+      console.log("LOGIN RESPONSE:", res);
+
+      if (res?.success && res?.data?.token) {
+        // localStorage.setItem("token", res.data.token);
+        localStorage.setItem("check", "working");
+
+        toast.success("Login successful");
+        navigate("/dashboard");
+      } else {
+        toast.error(res?.message || "Login failed");
+      }
+    } catch (err) {
+      console.error("LOGIN ERROR:", err);
+
+      toast.error(
+        err.response?.data?.message || "Login failed. Please try again."
+      );
+    }
+  };
+
+
 
   return (
     <section className="min-h-screen grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
@@ -28,7 +67,7 @@ const Login = () => {
         </p>
 
         {/* Form */}
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handlesubmit}>
           {/* Username Input */}
           <div>
             <label className="block text-[16px] sm:text-[18px] font-medium mb-1 inter">
@@ -36,6 +75,8 @@ const Login = () => {
             </label>
             <div className="flex items-center border-b pb-1">
               <input
+                value={email}
+                onChange={(e) => setemail(e.target.value)}
                 type="text"
                 className="outline-none w-full text-sm"
               />
@@ -52,6 +93,8 @@ const Login = () => {
             </label>
             <div className="border-b pb-1">
               <input
+                value={password}
+                onChange={(e) => setpassword(e.target.value)}
                 type="password"
                 className="outline-none w-full text-sm"
               />
@@ -76,8 +119,8 @@ const Login = () => {
 
           {/* Button */}
           <button
-            type="button"
-            onClick={() => navigate("/dashboard")}
+            type="submit"
+
             className="w-full bg-gray-800 text-white py-2 rounded-md hover:bg-black duration-200"
           >
             Continue

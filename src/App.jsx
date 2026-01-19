@@ -65,6 +65,8 @@ import MarketPlace from './Pages/MarketPlace/index.jsx'
 import ZoomMeeting from './Pages/MarketPlace/ZoomMeeting.jsx'
 import WordPress from './Pages/MarketPlace/WordPress.jsx'
 import GoogleAnalytics from './Pages/MarketPlace/GoogleAnalytics.jsx'
+import { ToastContainer } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 
 
 
@@ -158,7 +160,7 @@ function App() {
   return (
     <>
       <RouterProvider router={ThemeRoutes} />
-      {/* <ToastContainer
+      <ToastContainer
         position="top-right"
         autoClose={3000}
         hideProgressBar={false}
@@ -169,7 +171,7 @@ function App() {
         draggable
         pauseOnHover
         theme="light"
-      /> */}
+      />
     </>
   )
 }
