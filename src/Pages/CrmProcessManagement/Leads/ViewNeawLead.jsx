@@ -211,7 +211,7 @@ const ViewNeawLead = () => {
 
               <p className="text-sm">
                 Total:
-                <span className="ml-1 border px-2 rounded">  {filteredData.length}</span>
+                <span className="ml-1 border px-2 rounded">{filteredData.length}</span>
               </p>
             </div>
           </div>

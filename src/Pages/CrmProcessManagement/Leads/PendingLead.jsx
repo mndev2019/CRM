@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Topnav from "../../../Component/Topnav";
 import newlead from "../../../assets/Images/newlead.png";
 import { FiSearch } from "react-icons/fi";
@@ -9,37 +9,95 @@ import { CiEraser } from "react-icons/ci";
 import { LuFileInput } from "react-icons/lu";
 import { TbFileExport } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BASE_URL } from "../../../Api/Base_Url";
+import { toast } from "react-toastify";
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
 const PendingLead = () => {
     const navigate = useNavigate();
     const [showCreateMenu, setShowCreateMenu] = useState(false);
     const [showDotsMenu, setShowDotsMenu] = useState(false);
     const [activityDate, setactivityDate] = useState("");
-
+    const [data, setdata] = useState([])
+    const [search, setSearch] = useState("");
     const statusClasses = {
-        Processing: "bg-[#FFC4A4] text-[#FF5112]",
-        Completed: "bg-[#EFFFF0] text-[#049B1D]",
-        Failed: "bg-[#FDD7D7] text-[#FF1212]",
-        Pending: "bg-[#FFF7CC] text-[#C49A00]",
+        "processing": "bg-[#E6F9E8] text-[#1F7A24]",
+        "completed": "bg-[#EFFFF0] text-[#049B1D]",
+        "failed": "bg-[#FDD7D7] text-[#FF1212]",
+        "pending": "bg-[#FDD7D7] text-[#FF1212]",
     };
-    const leads = [
-        {
-            name: "Carissa Kidman",
-            company: "Oh my Goodknits",
-            phone: "555-555-5555",
-            email: "carisssa@noemail.com",
-            country: "India",
-            status: "Pending",
-        },
-        {
-            name: "Crissa Kidman",
-            company: "Oh my Goodknits",
-            phone: "555-555-5555",
-            email: "carisssa@noemail.com",
-            country: "India",
-            status: "Pending",
-        },
-    ];
+    // const leads = [
+    //     {
+    //         name: "Carissa Kidman",
+    //         company: "Oh my Goodknits",
+    //         phone: "555-555-5555",
+    //         email: "carisssa@noemail.com",
+    //         country: "India",
+    //         status: "Pending",
+    //     },
+    //     {
+    //         name: "Crissa Kidman",
+    //         company: "Oh my Goodknits",
+    //         phone: "555-555-5555",
+    //         email: "carisssa@noemail.com",
+    //         country: "India",
+    //         status: "Pending",
+    //     },
+    // ];
+    const handleget = async () => {
+        try {
+            const resp = await axios.get(`${BASE_URL}api/leads`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+            });
+
+            console.log(resp.data);
+            setdata(resp.data.data);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    useEffect(() => {
+        handleget();
+    }, [])
+    const handledelete = async (id) => {
+        if (confirm('Are you sure you want to delete?')) {
+            try {
+                const resp = await axios.delete(`${BASE_URL}api/leads/${id}`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem("token")}`,
+                        },
+                    }
+                );
+                console.log("deleted successfully", resp.data);
+
+                if (resp.data.success === true) {
+                    toast.success(resp.data.message);
+                    handleget();
+                } else {
+                    toast.error(resp.data.message || "Something went wrong");
+                }
+            } catch (error) {
+                console.error(error);
+                toast.error("Server error");
+            }
+        }
+    };
+
+    //check leadsstage === pending
+    const pendingLeads = data.filter(
+        (item) => item.leadStage?.toLowerCase() === "pending"
+    );
+    /* ================= SEARCH FILTER ================= */
+    const filteredData = pendingLeads.filter((item) =>
+        `${item.firstName} ${item.lastName} ${item.email} ${item.company}`
+            .toLowerCase()
+            .includes(search.toLowerCase())
+    );
 
     return (
         <>
@@ -151,6 +209,8 @@ const PendingLead = () => {
                                 />
                                 <input
                                     type="text"
+                                    value={search}
+                                    onChange={(e) => setSearch(e.target.value)}
                                     placeholder="Search here"
                                     className="border-b border-[#4C4646] pl-7 pb-1 text-sm w-44 outline-none placeholder-[#898484] inter"
                                 />
@@ -159,7 +219,7 @@ const PendingLead = () => {
                             <p className="text-[#706D6D] text-[16px] flex items-center gap-1 inter font-medium">
                                 Total:
                                 <span className="border border-[#858585] px-2 rounded-[4px] text-[15px]">
-                                    2
+                                    {filteredData.length}
                                 </span>
                             </p>
                         </div>
@@ -168,7 +228,7 @@ const PendingLead = () => {
                     {/* ---------- TABLE ---------- */}
                     <div className="hidden md:block overflow-x-auto">
                         <table className="min-w-[900px] w-full text-sm">
-                            <thead>
+                            {/* <thead>
                                 <tr className="bg-[#FFF3E4] border-b border-[#EDEEF4] inter font-semibold">
                                     <th className="p-3 w-10">
                                         <input type="checkbox" />
@@ -180,52 +240,76 @@ const PendingLead = () => {
                                     <th className="p-3 text-left border-r border-[#363636]">Country</th>
                                     <th className="p-3 text-left border-r border-[#363636]">Status</th>
                                 </tr>
+                            </thead> */}
+                            <thead>
+                                <tr className="bg-[#FFF3E4] border-b border-[#EDEEF4] inter font-semibold">
+                                    <th className="p-3 text-left">Lead Name</th>
+                                    <th className="p-3 text-left">Company</th>
+                                    <th className="p-3 text-left">Phone</th>
+                                    <th className="p-3 text-left">Email</th>
+                                    <th className="p-3 text-left">Country</th>
+                                    <th className="p-3 text-left">Status</th>
+                                    <th className="p-3 text-left">Action</th>
+                                </tr>
                             </thead>
 
                             <tbody>
-                                {leads.map((item, i) => (
-                                    <tr
-                                        key={i}
-                                        className="border-b border-[#EDEEF4] hover:bg-[#EDEEF4]"
-                                    >
-                                        <td className="p-3 w-10">
-                                            <input type="checkbox" />
-                                        </td>
-                                        <td className="p-3">{item.name}</td>
-                                        <td className="p-3">{item.company}</td>
-                                        <td className="p-3">{item.phone}</td>
-                                        <td className="p-3 break-all">{item.email}</td>
-                                        <td className="p-3">{item.country}</td>
-                                        <td className="p-3">
-                                            <span
-                                                className={`px-3 py-1 rounded-[6px] text-[16px] font-semibold nunito ${statusClasses[item.status]}`}
-                                            >
-                                                {item.status}
-                                            </span>
+                                {filteredData.length > 0 ? (
+                                    filteredData.map((item) => (
+                                        <tr key={item._id} className="border-b border-[#EDEEF4] hover:bg-[#EDEEF4]">
+                                            <td className="p-3">{item.firstName} {item.lastName}</td>
+                                            <td className="p-3">{item.company}</td>
+                                            <td className="p-3">{item.phoneNumber}</td>
+                                            <td className="p-3 break-all">{item.email}</td>
+                                            <td className="p-3">{item.country}</td>
+                                            <td className="p-3">
+                                                <span className={`px-3 py-1 rounded ${statusClasses[item.leadStage]}`}>
+                                                    {item.leadStage}
+                                                </span>
+                                            </td>
+                                            <td className="p-3 flex gap-3">
+                                                <AiFillEdit
+                                                    onClick={() => navigate("/create-lead", { state: item })}
+                                                    className="text-blue-600 cursor-pointer text-xl"
+                                                />
+                                                <AiFillDelete
+                                                    onClick={() => handledelete(item._id)}
+                                                    className="text-red-600 cursor-pointer text-xl"
+                                                />
+                                            </td>
+                                        </tr>
+                                    ))
+                                ) : (
+                                    <tr>
+                                        <td colSpan="7" className="text-center py-6 text-gray-500">
+                                            No leads found
                                         </td>
                                     </tr>
-                                ))}
+                                )}
                             </tbody>
                         </table>
                     </div>
                     <div className="md:hidden space-y-4">
-                        {leads.map((item, i) => (
+                        {data?.map((item, i) => (
                             <div key={i} className="border border-[#EDEEF4] rounded-xl p-4 shadow-sm">
                                 <div className="flex justify-between items-center mb-2">
-                                    <h3 className="font-semibold text-[16px]">{item.name}</h3>
-                                    <span className={`text-xs px-3 py-1 rounded-full ${statusClasses[item.status]}`}>
-                                        {item.status}
+                                    <h3 className="font-semibold text-[16px]">{item.firstName} - {item.lastName}</h3>
+                                    <span className={`text-xs px-3 py-1 rounded-full ${statusClasses[item.leadStage]}`}>
+                                        {item.leadStage}
                                     </span>
                                 </div>
 
                                 <div className="text-sm text-gray-600 space-y-1">
                                     <p><b>Company:</b> {item.company}</p>
-                                    <p><b>Phone:</b> {item.phone}</p>
+                                    <p><b>Phone:</b> {item.phoneNumber}</p>
                                     <p className="break-all"><b>Email:</b> {item.email}</p>
                                     <p><b>Country:</b> {item.country}</p>
                                 </div>
 
-                           
+                                <div className="flex justify-end gap-4 mt-3">
+                                    <AiFillEdit onClick={() => navigate('/create-lead', { state: { ...item } })} className="text-blue-600 text-xl cursor-pointer" />
+                                    <AiFillDelete onClick={() => handledelete(item._id)} className="text-red-600 text-xl cursor-pointer" />
+                                </div>
                             </div>
                         ))}
                     </div>
